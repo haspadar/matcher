@@ -21,6 +21,7 @@
 - PSR-12 Coding Standard via PHP_CodeSniffer
 
 ## About
+
 P2P matching engine for deposits and cashouts.
 Designed for strict code quality, type safety, and clean architecture (DDD).
 
@@ -34,12 +35,13 @@ After cloning the repository, run:
 git config core.hooksPath .git-hooks
 
 ## Available Commands
+## Available Commands
 
-| Command                  | Description                                 |
-|--------------------------|---------------------------------------------|
-| `composer install`       | Install PHP dependencies                    |
-| `composer analyse`       | Run PHPStan static analysis                 |
-| `composer cs`            | Run PHP_CodeSniffer (coding standards)      |
-| `composer fix`           | Auto-fix code style issues (phpcbf)         | 
-| `composer test`          | Run PHPUnit tests                           |
-| `composer test-coverage` | Run PHPUnit tests with code coverage report |
+| Command                   | Description                                    |
+|---------------------------|------------------------------------------------|
+| `composer install`        | Install PHP dependencies                       |
+| `composer analyse`        | Run PHPStan static analysis                    |
+| `composer pint`           | Auto-fix code style issues (Laravel Pint)      |
+| `composer pint-test`      | Check code style without fixing (Laravel Pint) |
+| `composer test`           | Run PHPUnit tests                              |
+| `composer test-coverage`  | Run PHPUnit tests with code coverage report    |
