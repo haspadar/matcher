@@ -2,7 +2,6 @@
 
 namespace Matcher\Payment\Domain\ValueObject;
 
-use InvalidArgumentException;
 use Matcher\Payment\Domain\Exception\InvalidCurrencyCodeException;
 
 class CurrencyCode

@@ -11,4 +11,6 @@
 
     <!-- Игнорировать папку с кешем -->
     <exclude-pattern>var/*</exclude-pattern>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+
 </ruleset>
