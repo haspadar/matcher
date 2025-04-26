@@ -2,7 +2,7 @@
 
 echo "Running pre-commit checks on staged PHP files..."
 
-# Собираем изменённые PHP-файлы
+# Collect staged PHP files
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.php$')
 
 if [ -z "$STAGED_FILES" ]; then
@@ -10,21 +10,24 @@ if [ -z "$STAGED_FILES" ]; then
   exit 0
 fi
 
-# Анализируем только изменённые файлы PHPStan
+# Check code style with Pint (without fixing)
+echo "Checking code style with Pint..."
+vendor/bin/pint --test $STAGED_FILES
+if [ $? -ne 0 ]; then
+  echo "❌ Pint code style checks failed. Commit aborted."
+  exit 1
+fi
+
+# Analyze staged files with PHPStan
+echo "Running PHPStan analysis..."
 echo "$STAGED_FILES" | xargs vendor/bin/phpstan analyse --no-progress --error-format=table
 if [ $? -ne 0 ]; then
   echo "❌ PHPStan checks failed. Commit aborted."
   exit 1
 fi
 
-# Проверяем стиль только на изменённых файлах PHPCS
-echo "$STAGED_FILES" | xargs vendor/bin/phpcs --report=summary
-if [ $? -ne 0 ]; then
-  echo "❌ PHPCS checks failed. Commit aborted."
-  exit 1
-fi
-
-# Запуск тестов на весь проект (можно заменить на тесты по изменённым файлам, но не всегда стоит)
+# Run PHPUnit tests
+echo "Running tests..."
 composer test
 if [ $? -ne 0 ]; then
   echo "❌ Tests failed. Commit aborted."
