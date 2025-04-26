@@ -36,11 +36,11 @@ jobs:
       - name: Validate composer.json
         run: composer validate
 
-      - name: Run PHPStan analysis
-        run: composer analyse
+      - name: Run PHPStan on changed files
+        run: composer analyze-changed
 
-      - name: Check outdated dependencies
-        run: composer outdated
+      - name: Check code style with Pint on changed files
+        run: composer pint-changed
 
       - name: Check platform requirements
         run: composer check-platform-reqs

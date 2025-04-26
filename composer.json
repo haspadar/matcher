@@ -23,7 +23,9 @@
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
         "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text --coverage-filter=src",
         "analyse": "phpstan analyse src tests",
+        "analyze-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/phpstan analyse",
         "pint": "pint",
+        "pint-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/pint --test",
         "pint-test": "pint --test"
     },
     "autoload": {
