@@ -18,14 +18,17 @@
         "phpstan/phpstan": "^2.1",
         "squizlabs/php_codesniffer": "^3.12",
         "nunomaduro/collision": "^8.8",
-        "slevomat/coding-standard": "^8.17"
+        "slevomat/coding-standard": "^8.17",
+        "laravel/pint": "^1.22"
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
         "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text=coverage.txt --coverage-clover=coverage.xml --coverage-filter=src",
         "analyse": "phpstan analyse src tests",
         "cs": "phpcs --report=full src tests",
-        "fix": "phpcbf src tests"
+        "fix": "phpcbf src tests",
+        "pint": "pint",
+        "pint-test": "pint --test"
     },
     "autoload": {
         "psr-4": {
