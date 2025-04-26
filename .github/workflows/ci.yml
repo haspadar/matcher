@@ -26,11 +26,14 @@ jobs:
       - name: Validate composer.json
         run: composer validate
 
-      - name: PHPStan analyse
+      - name: Run PHPStan analysis
         run: composer analyse
 
-      - name: PHPCS check
-        run: composer cs
+      - name: Check code style with Pint
+        run: composer pint-test
+
+      - name: Run tests
+        run: composer test
 
       - name: Run tests with code coverage
         run: composer test-coverage
