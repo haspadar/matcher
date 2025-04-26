@@ -22,7 +22,7 @@
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
-        "test-coverage": "XDEBUG_MODE=coverage phpunit --coverage-text --coverage-filter=src",
+        "test-coverage": "XDEBUG_MODE=coverage phpunit --coverage-text=coverage.txt --coverage-clover=coverage.xml --coverage-filter=src",
         "analyse": "phpstan analyse src tests",
         "cs": "phpcs --report=full src tests",
         "fix": "phpcbf src tests"
