@@ -43,7 +43,7 @@ jobs:
         run: composer outdated
 
       - name: Check platform requirements
-        run: composer platform-check
+        run: composer check-platform-reqs
 
       - name: Check for security vulnerabilities
         run: composer audit
