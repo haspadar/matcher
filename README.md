@@ -10,12 +10,14 @@
 
 ## Build Status
 
-- [![CI](https://github.com/haspadar/matcher/actions/workflows/ci.yml/badge.svg)](https://github.com/haspadar/matcher/actions/workflows/ci.yml)
+- Continuous Integration via GitHub Actions.
+- Automated Tests with PHPUnit.
+- Code Coverage tracking via Codecov.
 
 ## Code Quality
 
-- [![PHPStan Level](https://img.shields.io/badge/PHPStan-Level%209-brightgreen)](https://phpstan.org/)
-- PSR-12 Coding Standard via PHPCS
+- Static Analysis with PHPStan (Level 9)
+- PSR-12 Coding Standard via PHP_CodeSniffer
 
 ## About
 P2P matching engine for deposits and cashouts.
