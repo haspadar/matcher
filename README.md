@@ -35,7 +35,6 @@ After cloning the repository, run:
 git config core.hooksPath .git-hooks
 
 ## Available Commands
-## Available Commands
 
 | Command                   | Description                                    |
 |---------------------------|------------------------------------------------|
