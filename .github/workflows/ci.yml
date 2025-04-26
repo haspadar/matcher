@@ -20,6 +20,16 @@ jobs:
           php-version: '8.4'
           coverage: xdebug
 
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.composer/cache
+            vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-    
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
@@ -28,6 +38,15 @@ jobs:
 
       - name: Run PHPStan analysis
         run: composer analyse
+
+      - name: Check outdated dependencies
+        run: composer outdated
+
+      - name: Check platform requirements
+        run: composer platform-check
+
+      - name: Check for security vulnerabilities
+        run: composer audit
 
       - name: Check code style with Pint
         run: composer pint-test
