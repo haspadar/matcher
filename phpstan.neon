@@ -1,0 +1,17 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - tests
+    errorFormat: table
+    reportUnmatchedIgnoredErrors: false
+
+    checkUninitializedProperties: true
+    checkClassCaseSensitivity: true
+    checkDynamicProperties: true
+
+    ignoreErrors:
+        - '#Class .* not found#'
