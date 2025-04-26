@@ -35,8 +35,10 @@ jobs:
       - name: Run tests with code coverage
         run: composer test-coverage
 
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          name: code-coverage
-          path: coverage.txt
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: haspadar/matcher
+          files: coverage.xml
+          fail_ci_if_error: true
