@@ -45,7 +45,10 @@ class CurrencyCodeTest extends TestCase
         new CurrencyCode($invalidCode);
     }
 
-    public static function invalidCurrencyCodeProvider(): array
+    /**
+     * @return iterable<array{string}>
+     */
+    public static function invalidCurrencyCodeProvider(): iterable
     {
         return [
             ['us'],
