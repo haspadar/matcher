@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/haspadar/matcher/actions/workflows/ci.yml/badge.svg)](https://github.com/haspadar/matcher/actions/workflows/ci.yml)
 [![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)](https://github.com/haspadar/matcher/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/haspadar/matcher/branch/main/graph/badge.svg)](https://codecov.io/gh/haspadar/matcher)
 [![PHPStan Level](https://img.shields.io/badge/PHPStan-Level%209-brightgreen)](https://phpstan.org/)
 [![License](https://img.shields.io/github/license/haspadar/matcher)](LICENSE)
 
@@ -31,10 +32,11 @@ git config core.hooksPath .git-hooks
 
 ## Available Commands
 
-| Command             | Description                           |
-|---------------------|---------------------------------------|
-| `composer install`  | Install PHP dependencies              |
-| `composer analyse`  | Run PHPStan static analysis           |
-| `composer cs`       | Run PHP_CodeSniffer (coding standards)|
-| `composer fix`      | Auto-fix code style issues (phpcbf)   |
-| `composer test`     | Run PHPUnit tests                     |
+| Command                  | Description                                 |
+|--------------------------|---------------------------------------------|
+| `composer install`       | Install PHP dependencies                    |
+| `composer analyse`       | Run PHPStan static analysis                 |
+| `composer cs`            | Run PHP_CodeSniffer (coding standards)      |
+| `composer fix`           | Auto-fix code style issues (phpcbf)         | 
+| `composer test`          | Run PHPUnit tests                           |
+| `composer test-coverage` | Run PHPUnit tests with code coverage report |

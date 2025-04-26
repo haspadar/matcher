@@ -9,4 +9,5 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+
 </phpunit>

@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class CurrencyCodeTest extends TestCase
+final class CurrencyCodeTest extends TestCase
 {
     #[Test]
     public function canCreateValidCurrencyCode(): void
@@ -58,5 +58,23 @@ class CurrencyCodeTest extends TestCase
             [''],
             ['u$#'],
         ];
+    }
+
+    #[Test]
+    public function isEqualsReturnsTrueWhenCodesAreEqual(): void
+    {
+        $code1 = new CurrencyCode('usd');
+        $code2 = new CurrencyCode('USD');
+
+        $this->assertTrue($code1->isEquals($code2));
+    }
+
+    #[Test]
+    public function isEqualsReturnsFalseWhenCodesAreDifferent(): void
+    {
+        $code1 = new CurrencyCode('usd');
+        $code2 = new CurrencyCode('eur');
+
+        $this->assertFalse($code1->isEquals($code2));
     }
 }
