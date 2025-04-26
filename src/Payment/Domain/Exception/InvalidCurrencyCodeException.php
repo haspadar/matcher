@@ -6,6 +6,7 @@ namespace Matcher\Payment\Domain\Exception;
  * Thrown when an invalid currency code is provided.
  *
  * @package Matcher\Payment\Domain\Exception
+ * @codeCoverageIgnore
  */
 class InvalidCurrencyCodeException extends DomainException
 {

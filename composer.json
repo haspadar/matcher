@@ -14,7 +14,7 @@
         "php": "^8.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^12.0",
+        "phpunit/phpunit": "^12.1",
         "phpstan/phpstan": "^2.1",
         "squizlabs/php_codesniffer": "^3.12",
         "nunomaduro/collision": "^8.8",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
-        "test-coverage": "XDEBUG_MODE=coverage phpunit --coverage-text=coverage.txt --coverage-clover=coverage.xml --coverage-filter=src",
+        "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text=coverage.txt --coverage-clover=coverage.xml --coverage-filter=src",
         "analyse": "phpstan analyse src tests",
         "cs": "phpcs --report=full src tests",
         "fix": "phpcbf src tests"
