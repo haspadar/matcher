@@ -21,7 +21,7 @@
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
-        "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text=coverage.txt --coverage-clover=coverage.xml --coverage-filter=src",
+        "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text --coverage-filter=src",
         "analyse": "phpstan analyse src tests",
         "pint": "pint",
         "pint-test": "pint --test"

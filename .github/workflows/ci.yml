@@ -36,7 +36,7 @@ jobs:
         run: composer test
 
       - name: Run tests with code coverage
-        run: composer test-coverage
+        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover=coverage.xml --coverage-filter=src
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
