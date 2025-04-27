@@ -43,7 +43,8 @@ final class CurrencyServiceTest extends TestCase
                 new CurrencyCode('USD'),
                 new CurrencyName('US Dollar'),
                 new CurrencyPrecision(2),
-            ));
+            )
+        );
 
         $this->expectException(InvalidCurrencyCodeException::class);
 
