@@ -12,7 +12,7 @@ fi
 
 # Check and fix code style with Pint
 echo "Fixing code style with Pint..."
-vendor/bin/pint --fix $STAGED_FILES
+vendor/bin/pint $STAGED_FILES
 if [ $? -ne 0 ]; then
   echo "❌ Pint code style fixes failed. Commit aborted."
   exit 1
