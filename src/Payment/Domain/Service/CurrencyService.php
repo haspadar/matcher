@@ -10,6 +10,7 @@ use Matcher\Payment\Domain\Repository\CurrencyRepositoryInterface;
 use Matcher\Payment\Domain\ValueObject\CurrencyCode;
 use Matcher\Payment\Domain\ValueObject\CurrencyName;
 use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Shared\Domain\ValueObject\Uuid;
 
 class CurrencyService
 {
@@ -27,10 +28,11 @@ class CurrencyService
             throw new InvalidCurrencyCodeException('Currency code must be unique');
         }
 
+        $currencyId = Uuid::generate();
         $currencyCodeVO = new CurrencyCode($currencyCode);
         $currencyNameVO = new CurrencyName($currencyName);
         $currencyPrecisionVO = new CurrencyPrecision($precision);
 
-        return new Currency($currencyCodeVO, $currencyNameVO, $currencyPrecisionVO);
+        return new Currency($currencyId, $currencyCodeVO, $currencyNameVO, $currencyPrecisionVO);
     }
 }

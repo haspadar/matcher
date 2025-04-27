@@ -8,6 +8,7 @@ use Matcher\Payment\Domain\ValueObject\CurrencyCode;
 use Matcher\Payment\Domain\ValueObject\CurrencyName;
 use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\Entity\EntityInterface;
+use Matcher\Shared\Domain\ValueObject\Uuid;
 
 /**
  * @codeCoverageIgnore
@@ -15,6 +16,7 @@ use Matcher\Shared\Domain\Entity\EntityInterface;
 final class Currency implements EntityInterface
 {
     public function __construct(
+        private Uuid $id,
         private CurrencyCode $code,
         private CurrencyName $name,
         private CurrencyPrecision $precision,
@@ -36,4 +38,8 @@ final class Currency implements EntityInterface
         return $this->precision;
     }
 
+    public function getId(): Uuid
+    {
+        return $this->id;
+    }
 }

@@ -11,6 +11,7 @@ use Matcher\Payment\Domain\Service\CurrencyService;
 use Matcher\Payment\Domain\ValueObject\CurrencyCode;
 use Matcher\Payment\Domain\ValueObject\CurrencyName;
 use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Shared\Domain\ValueObject\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -36,11 +37,13 @@ final class CurrencyServiceTest extends TestCase
     #[Test]
     public function throwsExceptionForNonUniqueCurrencyCode(): void
     {
-        $this->currencyRepository->method('findByCode')->willReturn(new Currency(
-            new CurrencyCode('USD'),
-            new CurrencyName('US Dollar'),
-            new CurrencyPrecision(2)
-        ));
+        $this->currencyRepository->method('findByCode')->willReturn(
+            new Currency(
+                Uuid::generate(),
+                new CurrencyCode('USD'),
+                new CurrencyName('US Dollar'),
+                new CurrencyPrecision(2),
+            ));
 
         $this->expectException(InvalidCurrencyCodeException::class);
 
