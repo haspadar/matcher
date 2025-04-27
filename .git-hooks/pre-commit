@@ -10,11 +10,11 @@ if [ -z "$STAGED_FILES" ]; then
   exit 0
 fi
 
-# Check code style with Pint (without fixing)
-echo "Checking code style with Pint..."
-vendor/bin/pint --test $STAGED_FILES
+# Check and fix code style with Pint
+echo "Fixing code style with Pint..."
+vendor/bin/pint --fix $STAGED_FILES
 if [ $? -ne 0 ]; then
-  echo "❌ Pint code style checks failed. Commit aborted."
+  echo "❌ Pint code style fixes failed. Commit aborted."
   exit 1
 fi
 
