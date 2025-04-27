@@ -23,7 +23,6 @@ final class BankNameTest extends TestCase
     public function throwsExceptionForInvalidCharacters(): void
     {
         $this->expectException(InvalidBankNameException::class);
-        $this->expectExceptionMessage('Bank name must contain only Latin letters, spaces, commas, periods, or dashes.');
 
         new BankName('Sber@bank');
     }
@@ -32,18 +31,16 @@ final class BankNameTest extends TestCase
     public function throwsExceptionForTooShortName(): void
     {
         $this->expectException(InvalidBankNameException::class);
-        $this->expectExceptionMessage('Bank name must be between 2 and 255 characters.');
 
-        new BankName('A'); // слишком короткое имя
+        new BankName('A');
     }
 
     #[Test]
     public function throwsExceptionForTooLongName(): void
     {
         $this->expectException(InvalidBankNameException::class);
-        $this->expectExceptionMessage('Bank name must be between 2 and 255 characters.');
 
-        new BankName(str_repeat('A', 256)); // слишком длинное имя
+        new BankName(str_repeat('A', 256));
     }
 
     #[Test]

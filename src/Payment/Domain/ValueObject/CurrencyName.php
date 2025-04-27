@@ -27,7 +27,7 @@ class CurrencyName implements ValueObjectInterface
     private function validate(string $name): void
     {
         if (strlen($name) > 255) {
-            throw new InvalidCurrencyNameException("Currency name is too long");
+            throw new InvalidCurrencyNameException('Currency name is too long');
         }
     }
 }

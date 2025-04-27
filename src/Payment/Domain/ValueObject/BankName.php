@@ -29,11 +29,11 @@ final class BankName implements ValueObjectInterface
     private function validate(string $name): void
     {
         if (!preg_match('/^[a-zA-Z\s,.\-]+$/', $name)) {
-            throw new InvalidBankNameException('Bank name must contain only Latin letters, spaces, commas, periods, or dashes.');
+            throw new InvalidBankNameException('Bank name must contain only Latin letters, spaces, commas, periods, or dashes');
         }
 
         if (strlen($name) < 2 || strlen($name) > 255) {
-            throw new InvalidBankNameException('Bank name must be between 2 and 255 characters.');
+            throw new InvalidBankNameException('Bank name must be between 2 and 255 characters');
         }
     }
 

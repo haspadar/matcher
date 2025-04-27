@@ -10,7 +10,7 @@ use Matcher\Shared\Domain\ValueObject\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class BankTest extends TestCase
+final class BankTest extends TestCase
 {
     #[Test]
     public function equalsReturnsTrueForSameId(): void
@@ -50,4 +50,5 @@ class BankTest extends TestCase
 
         $this->assertSame($bankName->value(), $bank->getName()->value());
     }
+
 }
