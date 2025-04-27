@@ -12,11 +12,10 @@ final class Uuid implements ValueObjectInterface
 
     private string $uuid;
 
-    private function __construct(string $uuid)
+    public function __construct(string $uuid)
     {
-        if (!self::isValid($uuid)) {
-            throw new InvalidUuidException('Invalid UUID format');
-        }
+        $uuid = trim($uuid);
+        $this->validate($uuid);
 
         $this->uuid = $uuid;
     }
@@ -26,36 +25,33 @@ final class Uuid implements ValueObjectInterface
         return new self(self::generateUuidV4());
     }
 
-    public static function fromString(string $uuid): self
-    {
-        return new self($uuid);
-    }
-
     public function value(): string
     {
         return $this->uuid;
     }
 
-    private static function isValid(string $uuid): bool
+    public function validate(string $uuid): void
     {
-        return (bool)preg_match(
+        if (!preg_match(
             '/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',
-            $uuid,
-        );
+            $uuid
+        )) {
+            throw new InvalidUuidException('Invalid UUID format');
+        }
     }
 
     private static function generateUuidV4(): string
     {
-        $data = random_bytes(16);
+        $data = random_bytes(16); // Generates 16 random bytes
 
-        // Установка версии UUID = 4
+        // Set the version of the UUID to 4
         $data[6] = chr((ord($data[6]) & 0x0f) | 0x40);
-        // Установка варианта RFC 4122
+        // Set the variant according to RFC 4122
         $data[8] = chr((ord($data[8]) & 0x3f) | 0x80);
 
         return vsprintf(
-            '%s%s-%s-%s-%s-%s%s%s',
-            str_split(bin2hex($data), 4),
+            '%s%s-%s-%s-%s-%s%s%s', // Formats the UUID into the standard hexadecimal format
+            str_split(bin2hex($data), 4) // Converts the random data to hexadecimal and splits it into chunks
         );
     }
 }

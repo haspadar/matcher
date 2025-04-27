@@ -18,9 +18,7 @@ class Amount implements ValueObjectInterface
     {
         $amount = (string) $amount;
 
-        if (!preg_match('/^-?\d+(\.\d+)?$/', $amount)) {
-            throw new InvalidAmountException('Amount must be numeric');
-        }
+        $this->validate($amount);
 
         /**
          * @var numeric-string $amount
@@ -49,6 +47,18 @@ class Amount implements ValueObjectInterface
     public function isZero(): bool
     {
         return bccomp($this->amount, '0', 0) === 0;
+    }
+
+    /**
+     * @param  string  $amount
+     * @return void
+     * @throws InvalidAmountException
+     */
+    public function validate(string $amount): void
+    {
+        if (!preg_match('/^-?\d+(\.\d+)?$/', $amount)) {
+            throw new InvalidAmountException('Amount must be numeric');
+        }
     }
 
 }

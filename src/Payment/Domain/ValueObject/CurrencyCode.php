@@ -17,16 +17,19 @@ final class CurrencyCode implements ValueObjectInterface
     public function __construct(string $code)
     {
         $code = strtoupper(trim($code));
-
-        if (!preg_match('/^[A-Z]{3,6}$/', $code)) {
-            throw new InvalidCurrencyCodeException('Currency code must be between 3 and 6 uppercase letters');
-        }
-
+        $this->validate($code);
         $this->code = $code;
     }
 
     public function value(): string
     {
         return $this->code;
+    }
+
+    public function validate(string $code): void
+    {
+        if (!preg_match('/^[A-Z]{3,6}$/', $code)) {
+            throw new InvalidCurrencyCodeException('Currency code must be between 3 and 6 uppercase letters');
+        }
     }
 }

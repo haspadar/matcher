@@ -13,9 +13,7 @@ final class CurrencyPrecision implements ValueObjectInterface
 
     public function __construct(int $precision)
     {
-        if ($precision < 0 || $precision > 18) {
-            throw new InvalidCurrencyPrecisionException("Precision must be between 0 and 18");
-        }
+        $this->validate($precision);
 
         $this->precision = $precision;
     }
@@ -23,5 +21,12 @@ final class CurrencyPrecision implements ValueObjectInterface
     public function value(): int
     {
         return $this->precision;
+    }
+
+    private function validate(int $precision): void
+    {
+        if ($precision < 0 || $precision > 18) {
+            throw new InvalidCurrencyPrecisionException("Precision must be between 0 and 18");
+        }
     }
 }

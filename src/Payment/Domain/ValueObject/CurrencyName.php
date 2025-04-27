@@ -13,15 +13,21 @@ class CurrencyName implements ValueObjectInterface
 
     public function __construct(string $name)
     {
-        if (strlen($name) > 255) {
-            throw new InvalidCurrencyNameException("Currency name is too long");
-        }
+        $name = ucwords(strtolower(trim($name)));
+        $this->validate($name);
 
-        $this->name = ucwords(strtolower($name));
+        $this->name = $name;
     }
 
     public function value(): string
     {
         return $this->name;
+    }
+
+    private function validate(string $name): void
+    {
+        if (strlen($name) > 255) {
+            throw new InvalidCurrencyNameException("Currency name is too long");
+        }
     }
 }

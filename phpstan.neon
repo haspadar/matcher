@@ -1,4 +1,4 @@
 includes:
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
-    - phpstan.src.neon  # Для src
-    - phpstan.tests.neon  # Для tests
+    - phpstan.src.neon
+    - phpstan.tests.neon

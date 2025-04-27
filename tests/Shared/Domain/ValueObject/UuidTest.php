@@ -15,7 +15,7 @@ final class UuidTest extends TestCase
     public function itCreatesFromStringIfValid(): void
     {
         $valid = '550e8400-e29b-41d4-a716-446655440000';
-        $uuid = Uuid::fromString($valid);
+        $uuid = new Uuid($valid);
         $this->assertSame($valid, $uuid->value());
     }
 
@@ -23,14 +23,14 @@ final class UuidTest extends TestCase
     public function itThrowsExceptionForInvalidUuid(): void
     {
         $this->expectException(InvalidUuidException::class);
-        Uuid::fromString('invalid-uuid-string');
+        new Uuid('invalid-uuid-string');
     }
 
     #[Test]
     public function itIsEqualsForSameUuid(): void
     {
-        $uuid1 = Uuid::fromString('550e8400-e29b-41d4-a716-446655440000');
-        $uuid2 = Uuid::fromString('550e8400-e29b-41d4-a716-446655440000');
+        $uuid1 = new Uuid('550e8400-e29b-41d4-a716-446655440000');
+        $uuid2 = new Uuid('550e8400-e29b-41d4-a716-446655440000');
 
         $this->assertTrue($uuid1->isEquals($uuid2));
     }
