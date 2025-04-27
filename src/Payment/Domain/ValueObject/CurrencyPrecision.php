@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Matcher\Payment\Domain\ValueObject;
 
 use Matcher\Payment\Domain\Exception\InvalidCurrencyPrecisionException;
+use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 
-final class CurrencyPrecision
+final class CurrencyPrecision implements ValueObjectInterface
 {
     private int $precision;
 
@@ -22,10 +23,5 @@ final class CurrencyPrecision
     public function value(): int
     {
         return $this->precision;
-    }
-
-    public function isEquals(self $other): bool
-    {
-        return $this->precision === $other->value();
     }
 }

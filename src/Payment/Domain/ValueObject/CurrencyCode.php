@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Matcher\Payment\Domain\ValueObject;
 
 use Matcher\Payment\Domain\Exception\InvalidCurrencyCodeException;
+use Matcher\Shared\Domain\ValueObject\ValueObjectEqualsTrait;
+use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 
-final class CurrencyCode
+final class CurrencyCode implements ValueObjectInterface
 {
+    use ValueObjectEqualsTrait;
+
     private string $code;
 
     public function __construct(string $code)
@@ -24,10 +28,5 @@ final class CurrencyCode
     public function value(): string
     {
         return $this->code;
-    }
-
-    public function isEquals(self $other): bool
-    {
-        return $this->code === $other->value();
     }
 }

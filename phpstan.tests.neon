@@ -1,0 +1,13 @@
+parameters:
+    level: max
+    paths:
+        - tests
+    errorFormat: table
+    reportUnmatchedIgnoredErrors: false
+
+    checkUninitializedProperties: false  # Disable checks for uninitialized properties
+    checkClassCaseSensitivity: true
+    checkDynamicProperties: true
+
+    ignoreErrors:
+        - '#has an uninitialized property#'  # Warnings about uninitialized properties

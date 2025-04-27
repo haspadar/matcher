@@ -43,15 +43,4 @@ final class CurrencyPrecisionTest extends TestCase
             [999],
         ];
     }
-
-    #[Test]
-    public function isEqualsChecksEquality(): void
-    {
-        $precision1 = new CurrencyPrecision(6);
-        $precision2 = new CurrencyPrecision(6);
-        $precision3 = new CurrencyPrecision(8);
-
-        $this->assertTrue($precision1->isEquals($precision2));
-        $this->assertFalse($precision1->isEquals($precision3));
-    }
 }

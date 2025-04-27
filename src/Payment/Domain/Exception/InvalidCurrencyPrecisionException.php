@@ -2,21 +2,17 @@
 
 namespace Matcher\Payment\Domain\Exception;
 
+use Matcher\Tests\Payment\Domain\Exception\ErrorCodeTrait;
+
 /**
- * Thrown when an invalid currency precision is provided.
+ * Thrown when an invalid currency precision is provided
  *
  * @package Matcher\Payment\Domain\Exception
  * @codeCoverageIgnore
  */
 class InvalidCurrencyPrecisionException extends DomainException
 {
-    public const string ERROR_CODE = 'invalid_currency_precision';
+    use ErrorCodeTrait;
 
-    /**
-     * Returns a specific error code for this exception.
-     */
-    public function code(): string
-    {
-        return self::ERROR_CODE;
-    }
+    protected const string ERROR_CODE = 'invalid_currency_precision';
 }
