@@ -8,9 +8,12 @@ use Matcher\Payment\Domain\Entity\Currency;
 use Matcher\Payment\Domain\Exception\InvalidCurrencyCodeException;
 use Matcher\Payment\Domain\Repository\CurrencyRepositoryInterface;
 use Matcher\Payment\Domain\Service\CurrencyService;
+use Matcher\Payment\Domain\ValueObject\AmountStep;
 use Matcher\Payment\Domain\ValueObject\CurrencyCode;
 use Matcher\Payment\Domain\ValueObject\CurrencyName;
 use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Payment\Domain\ValueObject\Multiplicity;
+use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Shared\Domain\ValueObject\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -26,7 +29,13 @@ final class CurrencyServiceTest extends TestCase
     {
         $this->currencyRepository->method('findByCode')->willReturn(null);
 
-        $currency = $this->currencyService->createCurrency('USD', 'US Dollar', 2);
+        $currency = $this->currencyService->createCurrency(
+            'USD',
+            'US Dollar',
+            2,
+            10,
+            100
+        );
 
         // Приводим строку к нужному виду, проверяя первую заглавную букву в каждом слове
         $this->assertSame('USD', $currency->getCode()->value());
@@ -43,12 +52,15 @@ final class CurrencyServiceTest extends TestCase
                 new CurrencyCode('USD'),
                 new CurrencyName('US Dollar'),
                 new CurrencyPrecision(2),
+                new Multiplicity(10),
+                new AmountStep(100),
+                Status::NEW
             )
         );
 
         $this->expectException(InvalidCurrencyCodeException::class);
 
-        $this->currencyService->createCurrency('USD', 'US Dollar', 2);
+        $this->currencyService->createCurrency('USD', 'US Dollar', 2, 10, 100);
     }
 
     protected function setUp(): void

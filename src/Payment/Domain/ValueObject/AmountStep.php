@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Domain\ValueObject;
 
-use Matcher\Payment\Domain\Exception\InvalidTransactionMultiplicityException;
+use Matcher\Payment\Domain\Exception\InvalidAmountStepException;
 use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 
-final class TransactionMultiplicity implements ValueObjectInterface
+final class AmountStep implements ValueObjectInterface
 {
     private int $value;
 
@@ -25,11 +25,11 @@ final class TransactionMultiplicity implements ValueObjectInterface
     private function validate(int $value): void
     {
         if ($value === 0) {
-            throw new InvalidTransactionMultiplicityException('Transaction multiplicity must not be zero');
+            throw new InvalidAmountStepException('Amount step must not be zero');
         }
 
-        if ($value % 10 !== 0) {
-            throw new InvalidTransactionMultiplicityException('Transaction multiplicity must be a multiple of 10');
+        if ($value % 100 !== 0) {
+            throw new InvalidAmountStepException('Amount step must be a multiple of 100');
         }
     }
 }

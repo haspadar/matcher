@@ -29,4 +29,12 @@ class CardNumber implements RequisiteInterface
             throw new InvalidCardNumberException('Card number must be between 13 and 19 digits');
         }
     }
+
+    /**
+     * Get the BIN (first 6 digits) from the card number.
+     */
+    public function getBin(): string
+    {
+        return substr($this->number, 0, 6);
+    }
 }
