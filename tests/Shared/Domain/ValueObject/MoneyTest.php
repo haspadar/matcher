@@ -6,9 +6,9 @@ namespace Matcher\Tests\Shared\Domain\ValueObject;
 
 use Matcher\Payment\Domain\ValueObject\CurrencyCode;
 use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
-use Matcher\Shared\Domain\Entity\Amount;
-use Matcher\Shared\Domain\Entity\Money;
 use Matcher\Shared\Domain\Exception\CurrencyMismatchException;
+use Matcher\Shared\Domain\ValueObject\Amount;
+use Matcher\Shared\Domain\ValueObject\Money;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Matcher\Tests\Shared\Domain\ValueObject;
 
-use Matcher\Shared\Domain\Entity\PositiveAmount;
 use Matcher\Shared\Domain\Exception\InvalidAmountException;
+use Matcher\Shared\Domain\ValueObject\PositiveAmount;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

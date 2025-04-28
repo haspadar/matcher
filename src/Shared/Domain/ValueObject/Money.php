@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Matcher\Shared\Domain\Entity;
+namespace Matcher\Shared\Domain\ValueObject;
 
 use Matcher\Payment\Domain\ValueObject\CurrencyCode;
 use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\Exception\CurrencyMismatchException;
+use Matcher\Shared\Domain\ValueObject\Amount;
 use Matcher\Shared\Domain\ValueObject\ValueObjectEqualsTrait;
 use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 

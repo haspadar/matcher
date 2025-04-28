@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Matcher\Shared\Domain\Entity;
+namespace Matcher\Shared\Domain\ValueObject;
 
 use Matcher\Shared\Domain\Exception\InvalidAmountException;
+use Matcher\Shared\Domain\ValueObject\Amount;
 
 final class PositiveAmount extends Amount
 {
