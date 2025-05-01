@@ -6,10 +6,10 @@ namespace Matcher\Tests\Reference\Domain\Entity;
 
 use Matcher\Reference\Domain\Entity\Currency;
 use Matcher\Reference\Domain\ValueObject\AmountStep;
-use Matcher\Shared\Domain\ValueObject\CurrencyCode;
 use Matcher\Reference\Domain\ValueObject\CurrencyName;
-use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Reference\Domain\ValueObject\Multiplicity;
+use Matcher\Shared\Domain\ValueObject\CurrencyCode;
+use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\ValueObject\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

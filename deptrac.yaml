@@ -1,4 +1,4 @@
-parameters:
+deptrac:
   paths:
     - ./src
 
@@ -8,28 +8,18 @@ parameters:
   layers:
     - name: Shared
       collectors:
-        - type: className
-          regex: ^Matcher\\Shared\\
+        - type: classLike
+          value: ^Matcher\\Shared\\
 
     - name: ReferenceDomain
       collectors:
-        - type: className
-          regex: ^Matcher\\Reference\\Domain\\
-
-    - name: ReferenceApplication
-      collectors:
-        - type: className
-          regex: ^Matcher\\Reference\\Application\\
+        - type: classLike
+          value: ^Matcher\\Reference\\Domain\\
 
     - name: PaymentDomain
       collectors:
-        - type: className
-          regex: ^Matcher\\Payment\\Domain\\
-
-    - name: PaymentInfrastructure
-      collectors:
-        - type: className
-          regex: ^Matcher\\Payment\\Infrastructure\\
+        - type: classLike
+          value: ^Matcher\\Payment\\Domain\\
 
   ruleset:
     Shared: []
@@ -37,16 +27,6 @@ parameters:
     ReferenceDomain:
       - Shared
 
-    ReferenceApplication:
-      - ReferenceDomain
-      - Shared
-
     PaymentDomain:
-      - ReferenceDomain
-      - Shared
-
-    PaymentInfrastructure:
-      - PaymentDomain
-      - ReferenceApplication
       - ReferenceDomain
       - Shared

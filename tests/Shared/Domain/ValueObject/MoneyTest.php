@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Matcher\Tests\Shared\Domain\ValueObject;
 
-use Matcher\Shared\Domain\ValueObject\CurrencyCode;
-use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\Exception\CurrencyMismatchException;
 use Matcher\Shared\Domain\ValueObject\Amount;
+use Matcher\Shared\Domain\ValueObject\CurrencyCode;
+use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\ValueObject\Money;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

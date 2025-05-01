@@ -30,3 +30,4 @@ coverage/
 /coverage-report/
 /coverage_report.txt
 /build/
+/.deptrac.cache

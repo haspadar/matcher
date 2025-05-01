@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Matcher\Reference\Domain\Service;
 
 use Matcher\Reference\Domain\Entity\Currency;
-use Matcher\Shared\Domain\Exception\InvalidCurrencyCodeException;
 use Matcher\Reference\Domain\Repository\CurrencyRepositoryInterface;
 use Matcher\Reference\Domain\ValueObject\AmountStep;
-use Matcher\Shared\Domain\ValueObject\CurrencyCode;
 use Matcher\Reference\Domain\ValueObject\CurrencyName;
-use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Reference\Domain\ValueObject\Multiplicity;
+use Matcher\Shared\Domain\Exception\InvalidCurrencyCodeException;
+use Matcher\Shared\Domain\ValueObject\CurrencyCode;
+use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\ValueObject\Uuid;
 
 final class CurrencyService
