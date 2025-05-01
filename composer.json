@@ -23,7 +23,8 @@
         "laravel/pint": "^1.22",
         "deptrac/deptrac": "^3.0",
         "vimeo/psalm": "^6.10",
-        "infection/infection": "^0.29.14"
+        "infection/infection": "^0.29.14",
+        "phpmetrics/phpmetrics": "^3.0"
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
@@ -37,7 +38,8 @@
         "pint-test": "pint --test",
         "deptrac": "deptrac analyse --formatter=console",
         "infection": "XDEBUG_MODE=coverage vendor/bin/infection --threads=4 --only-covered",
-        "mutations": "./vendor/bin/infection --show-mutations"
+        "mutations": "./vendor/bin/infection --show-mutations",
+        "metrics": "phpmetrics --report-html=build/phpmetrics-report src"
     },
     "autoload": {
         "psr-4": {

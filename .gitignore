@@ -29,5 +29,13 @@ coverage.xml
 coverage/
 /coverage-report/
 /coverage_report.txt
+
+# PhpUnit cache
+/phpunit.xml.bak
+/.phpunit.cache/
+
+# Php metrics
 /build/
+
+# Deptrac cache
 /.deptrac.cache
