@@ -12,7 +12,7 @@ use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
 use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Payment\Domain\ValueObject\Type;
-use Matcher\Shared\Domain\ValueObject\PositiveAmount;
+use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use Matcher\Shared\Domain\ValueObject\Uuid;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
@@ -29,7 +29,7 @@ final class CashoutService
         PaymentProject $project,
         int $userId,
         CardNumber $cardNumber,
-        PositiveAmount $amount,
+        PositiveIntegerAmount $amount,
         PaymentCurrency $currency,
         Url $callbackUrl,
         Type $type = Type::NORMAL,

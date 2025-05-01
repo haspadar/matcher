@@ -12,7 +12,7 @@ use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Payment\Domain\ValueObject\Type;
 use Matcher\Reference\Domain\Exception\InvalidAmountStepException;
 use Matcher\Shared\Domain\Entity\EntityInterface;
-use Matcher\Shared\Domain\ValueObject\PositiveAmount;
+use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use Matcher\Shared\Domain\ValueObject\Uuid;
 
@@ -23,7 +23,7 @@ final class Cashout implements EntityInterface
         private PaymentProject $project,
         private int $userId,
         private CardNumber $cardNumber,
-        private PositiveAmount $amount,
+        private PositiveIntegerAmount $amount,
         private PaymentCurrency $currency,
         private Url $callbackUrl,
         private Status $status,
@@ -53,7 +53,7 @@ final class Cashout implements EntityInterface
         return $this->cardNumber;
     }
 
-    public function getAmount(): PositiveAmount
+    public function getAmount(): PositiveIntegerAmount
     {
         return $this->amount;
     }
@@ -78,10 +78,10 @@ final class Cashout implements EntityInterface
         return $this->type;
     }
 
-    private function validateAmount(PositiveAmount $amount, PaymentCurrency $currency): void
+    private function validateAmount(PositiveIntegerAmount $amount, PaymentCurrency $currency): void
     {
         $amountStep = $currency->amountStep;
-        if ((int) $amount->value() % $amountStep !== 0) {
+        if ($amount->value() % $amountStep !== 0) {
             throw new InvalidAmountStepException(
                 sprintf('Amount must be a multiple of %d', $amountStep),
             );

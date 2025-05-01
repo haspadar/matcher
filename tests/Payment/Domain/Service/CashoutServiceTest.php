@@ -12,7 +12,7 @@ use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
 use Matcher\Payment\Domain\ValueObject\Type;
-use Matcher\Shared\Domain\ValueObject\PositiveAmount;
+use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -30,7 +30,7 @@ final class CashoutServiceTest extends TestCase
     {
         $userId = 123;
         $cardNumber = new CardNumber('1234567890123456');
-        $amount = new PositiveAmount(1000);
+        $amount = new PositiveIntegerAmount(1000);
         $currency = new PaymentCurrency('USD', 100);
         $callbackUrl = new Url('https://example.com/callback');
         $type = Type::TEST;

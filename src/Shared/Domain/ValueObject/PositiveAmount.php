@@ -4,16 +4,24 @@ declare(strict_types=1);
 
 namespace Matcher\Shared\Domain\ValueObject;
 
-use Matcher\Shared\Domain\Exception\InvalidAmountException;
 
-final class PositiveAmount extends Amount
+use Matcher\Shared\Domain\Exception\InvalidPositiveAmountException;
+
+final class PositiveAmount
 {
-    public function __construct(string|int $amount)
-    {
-        parent::__construct($amount);
+    private Amount $amount;
 
-        if (!$this->isPositive()) {
-            throw new InvalidAmountException('PositiveAmount must be greater than zero');
+    public function __construct(string|int $value)
+    {
+        $this->amount = new Amount($value);
+
+        if (!$this->amount->isPositive()) {
+            throw new InvalidPositiveAmountException('PositiveAmount must be greater than zero');
         }
+    }
+
+    public function value(): string
+    {
+        return $this->amount->value();
     }
 }

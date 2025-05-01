@@ -9,7 +9,7 @@ use Matcher\Shared\Domain\Exception\InvalidAmountException;
 /**
  * @psalm-suppress
  */
-class Amount implements ValueObjectInterface
+final class Amount implements ValueObjectInterface
 {
     /**
      * @var numeric-string
@@ -57,7 +57,7 @@ class Amount implements ValueObjectInterface
      * @return void
      * @throws InvalidAmountException
      */
-    public function validate(string $amount): void
+    private function validate(string $amount): void
     {
         if (!preg_match('/^-?\d+(\.\d+)?$/', $amount)) {
             throw new InvalidAmountException('Amount must be numeric');

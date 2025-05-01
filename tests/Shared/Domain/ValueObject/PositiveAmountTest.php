@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Matcher\Tests\Shared\Domain\ValueObject;
 
 use Matcher\Shared\Domain\Exception\InvalidAmountException;
+use Matcher\Shared\Domain\Exception\InvalidPositiveAmountException;
 use Matcher\Shared\Domain\ValueObject\PositiveAmount;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -21,7 +22,7 @@ class PositiveAmountTest extends TestCase
     #[Test]
     public function throwsExceptionWhenZero(): void
     {
-        $this->expectException(InvalidAmountException::class);
+        $this->expectException(InvalidPositiveAmountException::class);
 
         new PositiveAmount('0');
     }
@@ -29,7 +30,7 @@ class PositiveAmountTest extends TestCase
     #[Test]
     public function throwsExceptionWhenNegative(): void
     {
-        $this->expectException(InvalidAmountException::class);
+        $this->expectException(InvalidPositiveAmountException::class);
 
         new PositiveAmount('-50');
     }

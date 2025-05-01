@@ -12,7 +12,7 @@ use Matcher\Payment\Domain\ValueObject\PaymentProject;
 use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Payment\Domain\ValueObject\Type;
 use Matcher\Reference\Domain\Exception\InvalidAmountStepException;
-use Matcher\Shared\Domain\ValueObject\PositiveAmount;
+use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use Matcher\Shared\Domain\ValueObject\Uuid;
 use PHPUnit\Framework\Attributes\Test;
@@ -30,7 +30,7 @@ final class CashoutTest extends TestCase
             new PaymentProject('some-project-code', true),
             123,
             new CardNumber('1234567890123456'),
-            new PositiveAmount(150),
+            new PositiveIntegerAmount(150),
             new PaymentCurrency('USD', 100),
             new Url('http://callback.url'),
             Status::NEW,
@@ -48,7 +48,7 @@ final class CashoutTest extends TestCase
             new PaymentProject('some-project-code', true),
             0,
             new CardNumber('1234567890123456'),
-            new PositiveAmount(150),
+            new PositiveIntegerAmount(150),
             new PaymentCurrency('USD', 100),
             new Url('http://callback.url'),
             Status::NEW,
@@ -63,7 +63,7 @@ final class CashoutTest extends TestCase
         $projectCode = 'some-project-code';
         $userId = 123;
         $cardNumber = new CardNumber('1234567890123456');
-        $amount = new PositiveAmount(300);
+        $amount = new PositiveIntegerAmount(300);
         $currency = new PaymentCurrency('USD', 100);
         $callbackUrl = new Url('http://callback.url');
         $status = Status::NEW;
@@ -81,7 +81,6 @@ final class CashoutTest extends TestCase
             $type
         );
 
-        // Assert the correct values from getters
         $this->assertSame($id, $cashout->getId());
         $this->assertSame($userId, $cashout->getUserId());
         $this->assertSame($cardNumber->value(), $cashout->getCardNumber()->value());
@@ -91,4 +90,5 @@ final class CashoutTest extends TestCase
         $this->assertSame($status, $cashout->getStatus());
         $this->assertSame($type, $cashout->getType());
     }
+
 }
