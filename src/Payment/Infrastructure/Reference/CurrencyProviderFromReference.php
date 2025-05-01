@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Infrastructure\Reference;
 
+use DomainException;
 use Matcher\Payment\Domain\Service\CurrencyProviderInterface;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Reference\Application\Query\CurrencyQueryServiceInterface;
@@ -21,7 +22,7 @@ final class CurrencyProviderFromReference implements CurrencyProviderInterface
         $dto = $this->referenceCurrencyQuery->findByCode($code);
 
         if ($dto === null) {
-            throw new \DomainException("Currency with code '$code' not found");
+            throw new DomainException("Currency with code '$code' not found");
         }
 
         return new PaymentCurrency(

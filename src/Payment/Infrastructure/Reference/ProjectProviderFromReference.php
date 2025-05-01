@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Infrastructure\Reference;
 
+use DomainException;
 use Matcher\Payment\Domain\Service\ProjectProviderInterface;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
 use Matcher\Reference\Application\Query\ProjectQueryServiceInterface;
@@ -21,7 +22,7 @@ final class ProjectProviderFromReference implements ProjectProviderInterface
         $dto = $this->referenceProjectQuery->findByCode($code);
 
         if ($dto === null) {
-            throw new \DomainException("Project with code '{$code}' not found");
+            throw new DomainException("Project with code '{$code}' not found");
         }
 
         return new PaymentProject(
