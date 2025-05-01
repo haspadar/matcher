@@ -73,13 +73,6 @@ final class Cashout implements EntityInterface
         return $this->status;
     }
 
-    public function validateUserId(int $userId): void
-    {
-        if ($userId <= 0) {
-            throw new InvalidUserIdException('User ID must be positive');
-        }
-    }
-
     public function getType(): Type
     {
         return $this->type;
@@ -92,6 +85,13 @@ final class Cashout implements EntityInterface
             throw new InvalidAmountStepException(
                 sprintf('Amount must be a multiple of %d', $amountStep),
             );
+        }
+    }
+
+    private function validateUserId(int $userId): void
+    {
+        if ($userId <= 0) {
+            throw new InvalidUserIdException('User ID must be positive');
         }
     }
 }
