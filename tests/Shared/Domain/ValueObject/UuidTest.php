@@ -45,6 +45,21 @@ final class UuidTest extends TestCase
     }
 
     #[Test]
+    public function throwsExceptionForUuidWithExtraCharacters(): void
+    {
+        $this->expectException(InvalidUuidException::class);
+        new Uuid('550e8400-e29b-41d4-a716-446655440000xyz');
+    }
+
+    #[Test]
+    public function throwsExceptionForUuidWithPrefix(): void
+    {
+        $this->expectException(InvalidUuidException::class);
+
+        new Uuid('xxx-550e8400-e29b-41d4-a716-446655440000');
+    }
+
+    #[Test]
     public function isEqualsForSameUuid(): void
     {
         $uuid1 = new Uuid('550e8400-e29b-41d4-a716-446655440000');
