@@ -23,8 +23,5 @@ filter:
 
 checks:
   php: true
-  coding_style:
-    php:
-      enabled: true
-      config:
-        psr12: true
+coding_style:
+    php: {}
