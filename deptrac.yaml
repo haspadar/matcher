@@ -1,0 +1,52 @@
+parameters:
+  paths:
+    - ./src
+
+  exclude_files:
+    - '#.*\/tests\/.*#'
+
+  layers:
+    - name: Shared
+      collectors:
+        - type: className
+          regex: ^Matcher\\Shared\\
+
+    - name: ReferenceDomain
+      collectors:
+        - type: className
+          regex: ^Matcher\\Reference\\Domain\\
+
+    - name: ReferenceApplication
+      collectors:
+        - type: className
+          regex: ^Matcher\\Reference\\Application\\
+
+    - name: PaymentDomain
+      collectors:
+        - type: className
+          regex: ^Matcher\\Payment\\Domain\\
+
+    - name: PaymentInfrastructure
+      collectors:
+        - type: className
+          regex: ^Matcher\\Payment\\Infrastructure\\
+
+  ruleset:
+    Shared: []
+
+    ReferenceDomain:
+      - Shared
+
+    ReferenceApplication:
+      - ReferenceDomain
+      - Shared
+
+    PaymentDomain:
+      - ReferenceDomain
+      - Shared
+
+    PaymentInfrastructure:
+      - PaymentDomain
+      - ReferenceApplication
+      - ReferenceDomain
+      - Shared
