@@ -22,7 +22,8 @@
         "nunomaduro/collision": "^8.8",
         "laravel/pint": "^1.22",
         "deptrac/deptrac": "^3.0",
-        "vimeo/psalm": "^6.10"
+        "vimeo/psalm": "^6.10",
+        "infection/infection": "^0.29.14"
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
@@ -34,7 +35,8 @@
         "pint": "pint",
         "pint-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/pint --test",
         "pint-test": "pint --test",
-        "deptrac": "deptrac analyse --formatter=console"
+        "deptrac": "deptrac analyse --formatter=console",
+        "infection": "XDEBUG_MODE=coverage vendor/bin/infection --threads=4 --only-covered"
     },
     "autoload": {
         "psr-4": {
@@ -48,7 +50,8 @@
     },
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "infection/extension-installer": true
         }
     }
 }
