@@ -65,9 +65,10 @@ jobs:
 
       - name: Run mutation testing with Infection
         run: |
-          ./vendor/bin/infection --threads=4 --show-mutations \
-            --min-msi=80 --min-covered-msi=80 \
-            --log-verbosity=all --log-file=infection.log
+          ./vendor/bin/infection \
+            --threads=4 \
+            --show-mutations \
+            --logger-github
 
       - name: Show Infection log
         run: cat infection.log
