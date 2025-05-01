@@ -6,6 +6,7 @@ namespace Matcher\Tests\Shared\Domain\ValueObject;
 
 use Matcher\Shared\Domain\Exception\InvalidUrlException;
 use Matcher\Shared\Domain\ValueObject\Url;
+use Matcher\Shared\Domain\ValueObject\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -17,6 +18,14 @@ final class UrlTest extends TestCase
         $url = new Url('https://example.com');
         $this->assertSame('https://example.com', $url->value());
     }
+
+    #[Test]
+    public function trimUrl(): void
+    {
+        $url = new Url('  https://example.com  ');
+        $this->assertSame('https://example.com', $url->value());
+    }
+
 
     #[Test]
     public function throwsExceptionForEmptyUrl(): void

@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 final class UuidTest extends TestCase
 {
     #[Test]
-    public function itCreatesFromStringIfValid(): void
+    public function createsFromStringIfValid(): void
     {
         $valid = '550e8400-e29b-41d4-a716-446655440000';
         $uuid = new Uuid($valid);
@@ -20,14 +20,23 @@ final class UuidTest extends TestCase
     }
 
     #[Test]
-    public function itThrowsExceptionForInvalidUuid(): void
+    public function trimUuid(): void
+    {
+        $valid = '550e8400-e29b-41d4-a716-446655440000';
+        $uuid = new Uuid('  ' . $valid . '  ');
+        $this->assertSame($valid, $uuid->value());
+    }
+
+
+    #[Test]
+    public function throwsExceptionForInvalidUuid(): void
     {
         $this->expectException(InvalidUuidException::class);
         new Uuid('invalid-uuid-string');
     }
 
     #[Test]
-    public function itIsEqualsForSameUuid(): void
+    public function isEqualsForSameUuid(): void
     {
         $uuid1 = new Uuid('550e8400-e29b-41d4-a716-446655440000');
         $uuid2 = new Uuid('550e8400-e29b-41d4-a716-446655440000');
@@ -36,7 +45,7 @@ final class UuidTest extends TestCase
     }
 
     #[Test]
-    public function itIsNotEqualsForDifferentUuids(): void
+    public function isNotEqualsForDifferentUuids(): void
     {
         $uuid1 = Uuid::generate();
         $uuid2 = Uuid::generate();
