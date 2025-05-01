@@ -27,7 +27,6 @@ final class UuidTest extends TestCase
         $this->assertSame($valid, $uuid->value());
     }
 
-
     #[Test]
     public function throwsExceptionForInvalidUuid(): void
     {
