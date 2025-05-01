@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Matcher\Tests\Reference\Domain\ValueObject;
 
 use Matcher\Reference\Domain\Exception\InvalidProjectCodeException;
+use Matcher\Reference\Domain\ValueObject\BankName;
 use Matcher\Reference\Domain\ValueObject\ProjectCode;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -16,6 +17,13 @@ final class ProjectCodeTest extends TestCase
     {
         $projectCode = new ProjectCode('PROJECT_001');
         $this->assertSame('PROJECT_001', $projectCode->value());
+    }
+
+    #[Test]
+    public function trimsProjectCode(): void
+    {
+        $projectCode = new ProjectCode('  PROJ  ');
+        $this->assertSame('PROJ', $projectCode->value());
     }
 
     #[Test]
@@ -51,5 +59,20 @@ final class ProjectCodeTest extends TestCase
     {
         $projectCode = new ProjectCode('project_001');
         $this->assertSame('PROJECT_001', $projectCode->value()); // Ensure it is converted to uppercase
+    }
+
+    #[Test]
+    public function acceptsMinimumLengthCode(): void
+    {
+        $code = new ProjectCode('A');
+        $this->assertSame('A', $code->value());
+    }
+
+    #[Test]
+    public function acceptsMaximumLengthCode(): void
+    {
+        $code = str_repeat('P', 255);
+        $projectCode = new ProjectCode($code);
+        $this->assertSame($code, $projectCode->value());
     }
 }

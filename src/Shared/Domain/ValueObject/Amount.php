@@ -39,17 +39,23 @@ final class Amount implements ValueObjectInterface
 
     public function isPositive(): bool
     {
-        return bccomp($this->amount, '0', 0) === 1;
+        $scale = $this->extractScale();
+
+        return bccomp($this->amount, '0', $scale) === 1;
     }
 
     public function isNegative(): bool
     {
-        return bccomp($this->amount, '0', 0) === -1;
+        $scale = $this->extractScale();
+
+        return bccomp($this->amount, '0', $scale) === -1;
     }
 
     public function isZero(): bool
     {
-        return bccomp($this->amount, '0', 0) === 0;
+        $scale = $this->extractScale();
+
+        return bccomp($this->amount, '0', $scale) === 0;
     }
 
     /**
@@ -64,4 +70,8 @@ final class Amount implements ValueObjectInterface
         }
     }
 
+    private function extractScale(): int
+    {
+        return strlen(explode('.', $this->amount)[1] ?? '');
+    }
 }

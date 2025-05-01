@@ -25,7 +25,7 @@ final class CurrencyCode implements ValueObjectInterface
         return $this->code;
     }
 
-    public function validate(string $code): void
+    private function validate(string $code): void
     {
         if (!preg_match('/^[A-Z]{3,6}$/', $code)) {
             throw new InvalidCurrencyCodeException('Currency code must be between 3 and 6 uppercase letters');

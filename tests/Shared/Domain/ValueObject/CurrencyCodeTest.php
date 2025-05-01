@@ -29,6 +29,14 @@ final class CurrencyCodeTest extends TestCase
     }
 
     #[Test]
+    public function trimCurrencyCode(): void
+    {
+        $currencyCode = new CurrencyCode(' USD ');
+
+        $this->assertSame('USD', $currencyCode->value());
+    }
+
+    #[Test]
     public function canCreateValidFiveLetterCurrencyCode(): void
     {
         $currencyCode = new CurrencyCode('shiba');

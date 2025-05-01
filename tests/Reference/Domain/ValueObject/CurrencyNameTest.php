@@ -28,6 +28,14 @@ final class CurrencyNameTest extends TestCase
     }
 
     #[Test]
+    public function trimName(): void
+    {
+        $name = new CurrencyName(' Dollar ');
+
+        $this->assertSame('Dollar', $name->value());
+    }
+
+    #[Test]
     public function throwsExceptionWhenNameIsTooLong(): void
     {
         $this->expectException(InvalidCurrencyNameException::class);
@@ -35,5 +43,14 @@ final class CurrencyNameTest extends TestCase
         $tooLongName = str_repeat('a', 256);
 
         new CurrencyName($tooLongName);
+    }
+
+    #[Test]
+    public function allowsNameWithExactly255Characters(): void
+    {
+        $name = str_repeat('a', 255);
+        $currencyName = new CurrencyName($name);
+
+        $this->assertSame(ucwords($name), $currencyName->value());
     }
 }

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Matcher\Tests\Reference\Domain\ValueObject;
 
+use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Reference\Domain\Exception\InvalidBankNameException;
 use Matcher\Reference\Domain\ValueObject\BankName;
+use Matcher\Reference\Domain\ValueObject\ProjectCode;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -36,6 +38,13 @@ final class BankNameTest extends TestCase
     }
 
     #[Test]
+    public function trimsBankName(): void
+    {
+        $cardNumber = new BankName('  EEE  ');
+        $this->assertSame('EEE', $cardNumber->value());
+    }
+
+    #[Test]
     public function throwsExceptionForTooLongName(): void
     {
         $this->expectException(InvalidBankNameException::class);
@@ -49,5 +58,20 @@ final class BankNameTest extends TestCase
         $bankName = new BankName('LLC ECOM BANK, Inc.');
 
         $this->assertSame('LLC ECOM BANK, Inc.', $bankName->value());
+    }
+
+    #[Test]
+    public function acceptsMinimumLengthCode(): void
+    {
+        $bankName = new BankName('AA');
+        $this->assertSame('AA', $bankName->value());
+    }
+
+    #[Test]
+    public function acceptsMaximumLengthCode(): void
+    {
+        $code = str_repeat('P', 255);
+        $bankName = new BankName($code);
+        $this->assertSame($code, $bankName->value());
     }
 }

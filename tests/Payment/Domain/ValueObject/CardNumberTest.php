@@ -12,42 +12,44 @@ use PHPUnit\Framework\TestCase;
 final class CardNumberTest extends TestCase
 {
     #[Test]
-    public function itCreatesValidCardNumber(): void
+    public function createsValidCardNumber(): void
     {
         $cardNumber = new CardNumber('1234567890123456');
-
         $this->assertSame('1234567890123456', $cardNumber->value());
     }
 
     #[Test]
-    public function itThrowsExceptionForInvalidCardNumberTooShort(): void
+    public function trimsCardNumber(): void
+    {
+        $cardNumber = new CardNumber('  1234567890123456  ');
+        $this->assertSame('1234567890123456', $cardNumber->value());
+    }
+
+    #[Test]
+    public function throwsExceptionForInvalidCardNumberTooShort(): void
     {
         $this->expectException(InvalidCardNumberException::class);
-
         new CardNumber('1234567890');
     }
 
     #[Test]
-    public function itThrowsExceptionForInvalidCardNumberTooLong(): void
+    public function throwsExceptionForInvalidCardNumberTooLong(): void
     {
         $this->expectException(InvalidCardNumberException::class);
-
         new CardNumber('12345678901234567890');
     }
 
     #[Test]
-    public function itThrowsExceptionForNonNumericCardNumber(): void
+    public function throwsExceptionForNonNumericCardNumber(): void
     {
         $this->expectException(InvalidCardNumberException::class);
-
         new CardNumber('1234ABC678901234');
     }
 
     #[Test]
-    public function itReturnsBinFromCardNumber(): void
+    public function returnsBinFromCardNumber(): void
     {
         $cardNumber = new CardNumber('1234567890123456');
-
         $this->assertSame('123456', $cardNumber->getBin());
     }
 }
