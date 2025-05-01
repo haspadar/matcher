@@ -32,8 +32,7 @@
         "psalm": "./vendor/bin/psalm",
         "pint": "pint",
         "pint-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/pint --test",
-        "pint-test": "pint --test",
-        "metrics": "vendor/bin/phpmetrics --report-html=build/phpmetrics src"
+        "pint-test": "pint --test"
     },
     "autoload": {
         "psr-4": {

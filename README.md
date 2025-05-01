@@ -7,7 +7,6 @@
 [![Psalm](https://img.shields.io/badge/psalm-level%208-brightgreen)](https://psalm.dev)
 [![Pint Style](https://img.shields.io/badge/Code%20Style-PSR--12-blue)](https://github.com/laravel/pint)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/haspadar/matcher/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/haspadar/matcher/?branch=main)
-[![PHP Metrics](https://img.shields.io/badge/PHPMetrics-Generated-brightgreen)](https://github.com/haspadar/matcher/actions/workflows/ci.yml)
 
 ---
 
@@ -22,7 +21,6 @@
 - Static Analysis with PHPStan (Level 9)
 - Static Analysis with Psalm (Level 8)
 - Scrutinizer CI for automated PR review and scoring
-- Architecture and complexity metrics via PHP Metrics
 - Code Formatting with Laravel Pint (PSR-12)
 
 ## About
@@ -50,4 +48,3 @@ git config core.hooksPath .git-hooks
 | `composer pint-test`       | Check code style without fixing (Laravel Pint) |
 | `composer test`            | Run PHPUnit tests                              |
 | `composer test-coverage`   | Run PHPUnit tests with code coverage report    |
-| `composer metrics`         | Generate architecture metrics report (HTML)    |

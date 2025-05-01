@@ -1,21 +1,30 @@
 build:
-  environment:
-    php:
-      version: '8.3'
+  nodes:
+    analysis:
+      project_setup:
+        override:
+          - 'true'
 
-  dependencies:
-    before:
-      - composer install --no-interaction --prefer-dist
+      dependencies:
+        before:
+          - composer install --no-interaction --prefer-dist
 
-  tests:
-    override:
-      - command: vendor/bin/phpunit
-      - command: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
-      - command: vendor/bin/psalm --output-format=console
-      - command: vendor/bin/pint --test
+      tests:
+        override:
+          - vendor/bin/phpunit --colors=always
+          - vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+          - vendor/bin/psalm --output-format=console
+          - vendor/bin/pint --test
+          - vendor/bin/phpmetrics --report-html=build/phpmetrics src
 
 filter:
-  paths:
-    - src/*
-    - app/*
-    - tests/*
+  excluded_paths:
+    - 'tests/*'
+
+checks:
+  php: true
+  coding_style:
+    php:
+      enabled: true
+      config:
+        psr12: true
