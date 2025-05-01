@@ -20,15 +20,15 @@ jobs:
           php-version: '8.4'
           coverage: xdebug
 
-      - name: Cache Composer dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.composer/cache
-            vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-    
+#      - name: Cache Composer dependencies
+#        uses: actions/cache@v4
+#        with:
+#          path: |
+#            ~/.composer/cache
+#            vendor
+#          key: ${{ runner.os }}-php-${{ hashFiles('composer.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-php-
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
@@ -62,6 +62,15 @@ jobs:
 
       - name: Run tests with code coverage
         run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover=coverage.xml --coverage-filter=src
+
+      - name: Run mutation testing with Infection
+        run: |
+          ./vendor/bin/infection --threads=4 --show-mutations \
+            --min-msi=80 --min-covered-msi=80 \
+            --log-verbosity=all --log-formatter=default --log-file=infection.log
+
+      - name: Show Infection log
+        run: cat infection.log
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
