@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Matcher\Shared\Domain\ValueObject;
 
 use Matcher\Shared\Domain\Exception\InvalidCurrencyPrecisionException;
-use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 
 final class CurrencyPrecision implements ValueObjectInterface
 {
