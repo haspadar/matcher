@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Matcher\Tests\Reference\Domain\ValueObject;
 
-use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Reference\Domain\Exception\InvalidBankNameException;
 use Matcher\Reference\Domain\ValueObject\BankName;
-use Matcher\Reference\Domain\ValueObject\ProjectCode;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

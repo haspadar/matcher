@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Matcher\Tests\Reference\Domain\ValueObject;
 
 use Matcher\Reference\Domain\Exception\InvalidProjectCodeException;
-use Matcher\Reference\Domain\ValueObject\BankName;
 use Matcher\Reference\Domain\ValueObject\ProjectCode;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

@@ -45,11 +45,6 @@ final class Money implements ValueObjectInterface
         return $this->currencyCode->value().':'.$this->amount->value();
     }
 
-    private function isSameCurrency(self $other): bool
-    {
-        return $this->currencyCode->isEquals($other->currencyCode());
-    }
-
     public function isGreaterThan(self $other): bool
     {
         $this->assertSameCurrency($other);
@@ -102,6 +97,11 @@ final class Money implements ValueObjectInterface
             $this->currencyCode,
             $this->currencyPrecision,
         );
+    }
+
+    private function isSameCurrency(self $other): bool
+    {
+        return $this->currencyCode->isEquals($other->currencyCode());
     }
 
     /**
