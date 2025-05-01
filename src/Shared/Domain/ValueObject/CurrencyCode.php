@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Matcher\Reference\Domain\ValueObject;
+namespace Matcher\Shared\Domain\ValueObject;
 
-use Matcher\Reference\Domain\Exception\InvalidCurrencyCodeException;
+use Matcher\Shared\Domain\Exception\InvalidCurrencyCodeException;
 use Matcher\Shared\Domain\ValueObject\ValueObjectEqualsTrait;
 use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 

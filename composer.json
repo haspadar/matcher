@@ -21,8 +21,8 @@
         "phpstan/phpstan": "^2.1",
         "nunomaduro/collision": "^8.8",
         "laravel/pint": "^1.22",
-        "vimeo/psalm": "^6.10",
-        "qossmic/deptrac": "^2.0"
+        "deptrac/deptrac": "^3.0",
+        "vimeo/psalm": "^6.10"
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",

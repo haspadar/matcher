@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Matcher\Reference\Domain\Entity;
 
 use Matcher\Reference\Domain\ValueObject\AmountStep;
-use Matcher\Reference\Domain\ValueObject\CurrencyCode;
+use Matcher\Shared\Domain\ValueObject\CurrencyCode;
 use Matcher\Reference\Domain\ValueObject\CurrencyName;
-use Matcher\Reference\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Reference\Domain\ValueObject\Multiplicity;
 use Matcher\Shared\Domain\Entity\EntityInterface;
 use Matcher\Shared\Domain\ValueObject\Uuid;

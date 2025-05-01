@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Domain\Entity;
 
-use Matcher\Payment\Domain\Exception\InvalidAmountStepException;
 use Matcher\Payment\Domain\Exception\InvalidUserIdException;
 use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
 use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Reference\Domain\Exception\InvalidAmountStepException;
 use Matcher\Shared\Domain\Entity\EntityInterface;
 use Matcher\Shared\Domain\ValueObject\PositiveAmount;
 use Matcher\Shared\Domain\ValueObject\Url;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Matcher\Reference\Domain\ValueObject;
+namespace Matcher\Shared\Domain\ValueObject;
 
-use Matcher\Reference\Domain\Exception\InvalidCurrencyPrecisionException;
+use Matcher\Shared\Domain\Exception\InvalidCurrencyPrecisionException;
 use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 
 final class CurrencyPrecision implements ValueObjectInterface

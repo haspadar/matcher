@@ -45,6 +45,9 @@ jobs:
       - name: Check code style with Pint on changed files
         run: composer pint-changed
 
+      - name: Architecture Check (Deptrac)
+        run: composer deptrac
+
       - name: Check platform requirements
         run: composer check-platform-reqs
 

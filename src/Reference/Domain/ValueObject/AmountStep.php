@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Matcher\Reference\Domain\ValueObject;
 
-use Matcher\Payment\Domain\Exception\InvalidAmountStepException;
+use Matcher\Reference\Domain\Exception\InvalidAmountStepException;
 use Matcher\Shared\Domain\ValueObject\ValueObjectInterface;
 
 final class AmountStep implements ValueObjectInterface

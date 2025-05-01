@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Matcher\Tests\Reference\Domain\ValueObject;
+namespace Matcher\Tests\Shared\Domain\ValueObject;
 
-use Matcher\Reference\Domain\Exception\InvalidCurrencyPrecisionException;
-use Matcher\Reference\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Shared\Domain\Exception\InvalidCurrencyPrecisionException;
+use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

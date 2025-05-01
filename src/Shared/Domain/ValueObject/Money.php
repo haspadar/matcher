@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Matcher\Shared\Domain\ValueObject;
 
-use Matcher\Reference\Domain\ValueObject\CurrencyCode;
-use Matcher\Reference\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Shared\Domain\ValueObject\CurrencyCode;
+use Matcher\Shared\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\Exception\CurrencyMismatchException;
 
 final class Money implements ValueObjectInterface

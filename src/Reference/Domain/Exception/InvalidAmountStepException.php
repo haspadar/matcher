@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Matcher\Payment\Domain\Exception;
+namespace Matcher\Reference\Domain\Exception;
 
-use Matcher\Reference\Domain\Exception\DomainException;
 use Matcher\Shared\Domain\Exception\ErrorCodeTrait;
 
 /**

@@ -6,6 +6,7 @@
 [![PHPStan Level](https://img.shields.io/badge/PHPStan-Level%209-brightgreen)](https://phpstan.org/)
 [![Psalm](https://img.shields.io/badge/psalm-level%208-brightgreen)](https://psalm.dev)
 [![Pint Style](https://img.shields.io/badge/Code%20Style-PSR--12-blue)](https://github.com/laravel/pint)
+[![Architecture](https://img.shields.io/badge/Architecture-Deptrac-brightgreen)](https://github.com/qossmic/deptrac)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/haspadar/matcher/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/haspadar/matcher/?branch=main)
 
 ---
@@ -16,12 +17,12 @@
 - Automated Tests with PHPUnit.
 - Code Coverage tracking via Codecov.
 
-## Code Analysis
+## Code Quality
 
 - Static Analysis with PHPStan (Level 9)
 - Static Analysis with Psalm (Level 8)
-- Scrutinizer CI for automated PR review and scoring
-- Code Formatting with Laravel Pint (PSR-12)
+- Code Formatting via Laravel Pint
+- Architecture Rules enforced by Deptrac
 
 ## About
 
@@ -48,3 +49,4 @@ git config core.hooksPath .git-hooks
 | `composer pint-test`       | Check code style without fixing (Laravel Pint) |
 | `composer test`            | Run PHPUnit tests                              |
 | `composer test-coverage`   | Run PHPUnit tests with code coverage report    |
+| `composer deptrac`         | Check architectural layer violations (Deptrac) |
