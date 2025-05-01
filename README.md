@@ -6,6 +6,8 @@
 [![PHPStan Level](https://img.shields.io/badge/PHPStan-Level%209-brightgreen)](https://phpstan.org/)
 [![Psalm](https://img.shields.io/badge/psalm-level%208-brightgreen)](https://psalm.dev)
 [![Pint Style](https://img.shields.io/badge/Code%20Style-PSR--12-blue)](https://github.com/laravel/pint)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/haspadar/matcher/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/haspadar/matcher/?branch=main)
+[![PHP Metrics](https://img.shields.io/badge/PHPMetrics-Generated-brightgreen)](https://github.com/haspadar/matcher/actions/workflows/ci.yml)
 
 ---
 
@@ -15,17 +17,17 @@
 - Automated Tests with PHPUnit.
 - Code Coverage tracking via Codecov.
 
-## Code Quality
+## Code Analysis
 
 - Static Analysis with PHPStan (Level 9)
 - Static Analysis with Psalm (Level 8)
-- PSR-12 Coding Standard via PHP_CodeSniffer
-- Code Formatting via Laravel Pint
-- Code Smell Detection via PHP Mess Detector (phpmd 3.x)
+- Scrutinizer CI for automated PR review and scoring
+- Architecture and complexity metrics via PHP Metrics
+- Code Formatting with Laravel Pint (PSR-12)
 
 ## About
 
-P2P matching engine for deposits and cashouts.
+P2P matching engine for deposits and cashouts.  
 Designed for strict code quality, type safety, and clean architecture (DDD).
 
 ---
@@ -37,15 +39,10 @@ After cloning the repository, run:
 ```bash
 git config core.hooksPath .git-hooks
 
-To run phpmd with PHP 8.3+ support and suppressed deprecation warnings:
-
-```bash
-composer phpmd
-
 ## Available Commands
 
-| Command                   | Description                                     |
-|---------------------------|-------------------------------------------------|
+| Command                    | Description                                    |
+|----------------------------|------------------------------------------------|
 | `composer install`         | Install PHP dependencies                       |
 | `composer analyse`         | Run PHPStan static analysis                    |
 | `composer psalm`           | Run Psalm static analysis                      |
@@ -53,4 +50,4 @@ composer phpmd
 | `composer pint-test`       | Check code style without fixing (Laravel Pint) |
 | `composer test`            | Run PHPUnit tests                              |
 | `composer test-coverage`   | Run PHPUnit tests with code coverage report    |
-| `composer phpmd`           | Run PHP Mess Detector with custom ruleset      |
+| `composer metrics`         | Generate architecture metrics report (HTML)    |

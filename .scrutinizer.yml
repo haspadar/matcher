@@ -1,0 +1,29 @@
+build:
+  environment:
+    php:
+      version: '8.4'
+
+  dependencies:
+    before:
+      - composer install --no-interaction --prefer-dist
+
+  tests:
+    override:
+      - command: vendor/bin/phpunit
+
+  tools:
+    php_code_sniffer: true
+    php_cpd: true
+    php_loc: true
+    php_pdepend: true
+    phpstan:
+      config_file: phpstan.neon
+    psalm:
+      config_file: psalm.xml
+    phpmetrics: true
+
+filter:
+  paths:
+    - src/*
+    - app/*
+    - tests/*

@@ -45,9 +45,6 @@ jobs:
       - name: Check code style with Pint on changed files
         run: composer pint-changed
 
-      - name: Run PHP Mess Detector (PHPMD)
-        run: composer phpmd
-
       - name: Check platform requirements
         run: composer check-platform-reqs
 
