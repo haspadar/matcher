@@ -7,7 +7,7 @@
 [![Psalm](https://img.shields.io/badge/psalm-level%208-brightgreen)](https://psalm.dev)
 [![Pint Style](https://img.shields.io/badge/Code%20Style-PSR--12-blue)](https://github.com/laravel/pint)
 [![Architecture](https://img.shields.io/badge/Architecture-Deptrac-brightgreen)](https://github.com/qossmic/deptrac)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/haspadar/matcher/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/haspadar/matcher/?branch=main)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=haspadar_matcher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=haspadar_matcher)
 
 ---
 
