@@ -70,9 +70,6 @@ jobs:
             --show-mutations \
             --logger-github
 
-      - name: Show Infection log
-        run: cat infection.log
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
