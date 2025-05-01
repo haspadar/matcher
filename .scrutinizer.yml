@@ -10,17 +10,9 @@ build:
   tests:
     override:
       - command: vendor/bin/phpunit
-
-  tools:
-    php_code_sniffer: true
-    php_cpd: true
-    php_loc: true
-    php_pdepend: true
-    phpstan:
-      config_file: phpstan.neon
-    psalm:
-      config_file: psalm.xml
-    phpmetrics: true
+      - command: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+      - command: vendor/bin/psalm --output-format=console
+      - command: vendor/bin/pint --test
 
 filter:
   paths:
