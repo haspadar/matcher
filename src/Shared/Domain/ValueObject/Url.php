@@ -19,6 +19,7 @@ final class Url implements ValueObjectInterface
         $this->url = $url;
     }
 
+    #[\Override]
     public function value(): string
     {
         return $this->url;

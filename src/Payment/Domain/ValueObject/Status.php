@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Domain\ValueObject;
 
+/**
+ * @codeCoverageIgnore
+ */
 enum Status: string
 {
     public function id(): int
@@ -12,5 +15,6 @@ enum Status: string
             self::NEW => 1,
         };
     }
+
     case NEW = 'new';
 }

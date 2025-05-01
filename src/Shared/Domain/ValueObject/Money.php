@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Matcher\Shared\Domain\ValueObject;
 
-use Matcher\Payment\Domain\ValueObject\CurrencyCode;
-use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Reference\Domain\ValueObject\CurrencyCode;
+use Matcher\Reference\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\Exception\CurrencyMismatchException;
 
 final class Money implements ValueObjectInterface
@@ -41,6 +41,7 @@ final class Money implements ValueObjectInterface
         return $this->currencyPrecision;
     }
 
+    #[\Override]
     public function value(): string
     {
         return $this->currencyCode->value().':'.$this->amount->value();
@@ -132,7 +133,7 @@ final class Money implements ValueObjectInterface
             return new Amount($value);
         }
 
-        [$integerPart, $decimalPart] = explode('.', $value, 2);
+        [$integerPart, $decimalPart] = explode('.', $value . '.');  // Добавляем точку, чтобы избежать ошибки
 
         $precision = $this->currencyPrecision->value();
 

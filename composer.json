@@ -12,19 +12,23 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^8.4",
-        "ext-bcmath": "*"
+        "ext-bcmath": "*",
+        "symfony/event-dispatcher": "^7.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^12.1",
         "phpstan/phpstan": "^2.1",
         "nunomaduro/collision": "^8.8",
-        "laravel/pint": "^1.22"
+        "laravel/pint": "^1.22",
+        "vimeo/psalm": "^6.10"
     },
     "scripts": {
         "test": "phpunit --order-by=random --random-order-seed=$(date +%s)",
         "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text --coverage-filter=src",
+        "test-coverage-html": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=coverage-report --coverage-filter=src",
         "analyse": "phpstan analyse src tests",
         "analyze-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/phpstan analyse",
+        "psalm": "./vendor/bin/psalm",
         "pint": "pint",
         "pint-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/pint --test",
         "pint-test": "pint --test"

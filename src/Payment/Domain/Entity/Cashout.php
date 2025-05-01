@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Domain\Entity;
 
+use Matcher\Payment\Domain\Exception\InvalidAmountStepException;
+use Matcher\Payment\Domain\Exception\InvalidUserIdException;
 use Matcher\Payment\Domain\ValueObject\CardNumber;
-use Matcher\Payment\Domain\ValueObject\UserId;
+use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
+use Matcher\Payment\Domain\ValueObject\PaymentProject;
+use Matcher\Payment\Domain\ValueObject\Status;
+use Matcher\Payment\Domain\ValueObject\Type;
 use Matcher\Shared\Domain\Entity\EntityInterface;
 use Matcher\Shared\Domain\ValueObject\PositiveAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
@@ -15,15 +20,17 @@ final class Cashout implements EntityInterface
 {
     public function __construct(
         private Uuid $id,
-        private Project $project,
-        private UserId $userId,
+        private PaymentProject $project,
+        private int $userId,
         private CardNumber $cardNumber,
         private PositiveAmount $amount,
-        private Currency $currency,
+        private PaymentCurrency $currency,
         private Url $callbackUrl,
-        private bool $isTest,
+        private Status $status,
+        private Type $type,
     ) {
-
+        $this->validateUserId($userId);
+        $this->validateAmount($amount, $currency);
     }
 
     public function getId(): Uuid
@@ -31,12 +38,12 @@ final class Cashout implements EntityInterface
         return $this->id;
     }
 
-    public function getProject(): Project
+    public function getProject(): PaymentProject
     {
         return $this->project;
     }
 
-    public function getUserId(): UserId
+    public function getUserId(): int
     {
         return $this->userId;
     }
@@ -51,7 +58,7 @@ final class Cashout implements EntityInterface
         return $this->amount;
     }
 
-    public function getCurrency(): Currency
+    public function getCurrency(): PaymentCurrency
     {
         return $this->currency;
     }
@@ -61,9 +68,30 @@ final class Cashout implements EntityInterface
         return $this->callbackUrl;
     }
 
-    public function isTest(): bool
+    public function getStatus(): Status
     {
-        return $this->isTest;
+        return $this->status;
     }
 
+    public function validateUserId(int $userId): void
+    {
+        if ($userId <= 0) {
+            throw new InvalidUserIdException('User ID must be positive');
+        }
+    }
+
+    public function getType(): Type
+    {
+        return $this->type;
+    }
+
+    private function validateAmount(PositiveAmount $amount, PaymentCurrency $currency): void
+    {
+        $amountStep = $currency->amountStep;
+        if ((int) $amount->value() % $amountStep !== 0) {
+            throw new InvalidAmountStepException(
+                sprintf('Amount must be a multiple of %d', $amountStep),
+            );
+        }
+    }
 }

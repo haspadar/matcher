@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Matcher\Shared\Domain\Exception;
 
-use Matcher\Tests\Payment\Domain\Exception\ErrorCodeTrait;
-
 /**
  * @codeCoverageIgnore
  */
-class InvalidUrlException extends DomainException
+final class InvalidUrlException extends DomainException
 {
     use ErrorCodeTrait;
 

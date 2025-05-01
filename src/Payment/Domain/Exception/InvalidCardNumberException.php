@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Domain\Exception;
 
-use Matcher\Tests\Payment\Domain\Exception\ErrorCodeTrait;
+use Matcher\Shared\Domain\Exception\ErrorCodeTrait;
 
 /**
- * Thrown when an invalid bank name is provided
+ * Thrown when an invalid card name is provided
  *
  * @package Matcher\Payment\Domain\Exception
  * @codeCoverageIgnore
  */
-class InvalidCardNumberException extends DomainException
+final class InvalidCardNumberException extends DomainException
 {
     use ErrorCodeTrait;
 

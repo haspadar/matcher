@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace Matcher\Payment\Domain\Exception;
 
-use Matcher\Tests\Payment\Domain\Exception\ErrorCodeTrait;
+use Matcher\Reference\Domain\Exception\DomainException;
+use Matcher\Shared\Domain\Exception\ErrorCodeTrait;
 
 /**
  * Thrown when an invalid amount step is provided
  *
- * @package Matcher\Payment\Domain\Exception
+ * @package Matcher\Reference\Domain\Exception
  * @codeCoverageIgnore
  */
-class InvalidAmountStepException extends DomainException
+final class InvalidAmountStepException extends DomainException
 {
     use ErrorCodeTrait;
 

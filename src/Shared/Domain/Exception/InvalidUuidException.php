@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Matcher\Shared\Domain\Exception;
 
-use Matcher\Tests\Payment\Domain\Exception\ErrorCodeTrait;
-
 /**
  * @codeCoverageIgnore
  */
-class InvalidUuidException extends DomainException
+final class InvalidUuidException extends DomainException
 {
     use ErrorCodeTrait;
 

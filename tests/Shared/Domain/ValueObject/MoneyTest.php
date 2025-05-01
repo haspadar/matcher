@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Matcher\Tests\Shared\Domain\ValueObject;
 
-use Matcher\Payment\Domain\ValueObject\CurrencyCode;
-use Matcher\Payment\Domain\ValueObject\CurrencyPrecision;
+use Matcher\Reference\Domain\ValueObject\CurrencyCode;
+use Matcher\Reference\Domain\ValueObject\CurrencyPrecision;
 use Matcher\Shared\Domain\Exception\CurrencyMismatchException;
 use Matcher\Shared\Domain\ValueObject\Amount;
 use Matcher\Shared\Domain\ValueObject\Money;

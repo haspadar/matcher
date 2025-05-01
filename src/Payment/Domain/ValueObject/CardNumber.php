@@ -7,7 +7,7 @@ namespace Matcher\Payment\Domain\ValueObject;
 use Matcher\Payment\Domain\Exception\InvalidCardNumberException;
 use Matcher\Shared\Domain\ValueObject\RequisiteInterface;
 
-class CardNumber implements RequisiteInterface
+final class CardNumber implements RequisiteInterface
 {
     private string $number;
 
@@ -18,11 +18,13 @@ class CardNumber implements RequisiteInterface
         $this->number = $number;
     }
 
+    #[\Override]
     public function value(): string
     {
         return $this->number;
     }
 
+    #[\Override]
     public function validate(string $value): void
     {
         if (!preg_match('/^\d{13,19}$/', $value)) {

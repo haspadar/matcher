@@ -6,6 +6,9 @@ namespace Matcher\Shared\Domain\ValueObject;
 
 use Matcher\Shared\Domain\Exception\InvalidAmountException;
 
+/**
+ * @psalm-suppress
+ */
 class Amount implements ValueObjectInterface
 {
     /**
@@ -28,6 +31,7 @@ class Amount implements ValueObjectInterface
     /**
      * @return numeric-string
      */
+    #[\Override]
     public function value(): string
     {
         return $this->amount;

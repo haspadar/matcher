@@ -39,6 +39,9 @@ jobs:
       - name: Run PHPStan on changed files
         run: composer analyze-changed
 
+      - name: Run Psalm static analysis
+        run: composer psalm
+
       - name: Check code style with Pint on changed files
         run: composer pint-changed
 

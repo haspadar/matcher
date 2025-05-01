@@ -25,6 +25,7 @@ final class Uuid implements ValueObjectInterface
         return new self(self::generateUuidV4());
     }
 
+    #[\Override]
     public function value(): string
     {
         return $this->uuid;
