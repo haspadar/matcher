@@ -21,12 +21,49 @@ deptrac:
         - type: classLike
           value: ^Matcher\\Payment\\Domain\\
 
+    - name: PlanningDomain
+      collectors:
+        - type: classLike
+          value: ^Matcher\\Planning\\Domain\\
+
+    - name: MatchingDomain
+      collectors:
+        - type: classLike
+          value: ^Matcher\\Matching\\Domain\\
+
+    - name: TransferDomain
+      collectors:
+        - type: classLike
+          value: ^Matcher\\Transfer\\Domain\\
+
+    - name: CheckingDomain
+      collectors:
+        - type: classLike
+          value: ^Matcher\\Checking\\Domain\\
+
   ruleset:
     Shared: []
 
     ReferenceDomain:
       - Shared
 
-    PaymentDomain:
-      - ReferenceDomain
+    PlanningDomain:
       - Shared
+      - ReferenceDomain
+
+    PaymentDomain:
+      - Shared
+      - ReferenceDomain
+      - PlanningDomain
+
+    MatchingDomain:
+      - Shared
+      - PaymentDomain
+
+    TransferDomain:
+      - Shared
+      - MatchingDomain
+
+    CheckingDomain:
+      - Shared
+      - TransferDomain

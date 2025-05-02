@@ -52,9 +52,13 @@ git config core.hooksPath .git-hooks
 | `composer analyse`       | Run PHPStan static analysis                          |
 | `composer psalm`         | Run Psalm static analysis                            |
 | `composer pint`          | Auto-fix code style issues (Laravel Pint)            |
-| `composer pint-test`     | Check code style without fixing (Laravel Pint)       |1
+| `composer pint-test`     | Check code style without fixing (Laravel Pint)       |
 | `composer test`          | Run PHPUnit tests                                    |
 | `composer test-coverage` | Run PHPUnit tests with code coverage report          |
 | `composer deptrac`       | Check architectural layer violations (Deptrac)       |
 | `composer mutation`      | Run mutation testing with Infection                  |
 | `composer metrics`       | Generate static code metrics report (PHP Metrics v3) |
+
+## 📘 Документация
+
+- [💬 Единый язык (Glossary)](docs/glossary.md)
