@@ -37,6 +37,8 @@
 - Проверка и автоформатирование кода через [Laravel Pint](https://laravel.com/docs/pint)
 - Архитектурные границы проверяются с помощью [Deptrac](https://github.com/deptrac/deptrac)
 - Мутационное тестирование через [Infection](https://infection.github.io/)
+- Генерация отчётов по метрикам кода через [PHP Metrics](https://phpmetrics.org/)
+
 
 ---
 
