@@ -48,6 +48,7 @@ final class Money implements ValueObjectInterface
     public function isGreaterThan(self $other): bool
     {
         $this->assertSameCurrency($other);
+
         return bccomp(
             $this->amount->value(),
             $other->amount()->value(),
@@ -58,6 +59,7 @@ final class Money implements ValueObjectInterface
     public function isLessThan(self $other): bool
     {
         $this->assertSameCurrency($other);
+
         return bccomp(
             $this->amount->value(),
             $other->amount()->value(),

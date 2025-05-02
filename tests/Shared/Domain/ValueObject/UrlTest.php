@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Matcher\Tests\Shared\Domain\ValueObject;
 
+use Matcher\Shared\Domain\Exception\EmptyUrlException;
 use Matcher\Shared\Domain\Exception\InvalidUrlException;
 use Matcher\Shared\Domain\ValueObject\Url;
 use PHPUnit\Framework\Attributes\Test;
@@ -28,8 +29,15 @@ final class UrlTest extends TestCase
     #[Test]
     public function throwsExceptionForEmptyUrl(): void
     {
-        $this->expectException(InvalidUrlException::class);
+        $this->expectException(EmptyUrlException::class);
         new Url('');
+    }
+
+    #[Test]
+    public function throwsExceptionForOnlySpacesUrl(): void
+    {
+        $this->expectException(EmptyUrlException::class);
+        new Url('   ');
     }
 
     #[Test]

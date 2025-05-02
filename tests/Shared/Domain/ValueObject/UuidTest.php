@@ -38,6 +38,13 @@ final class UuidTest extends TestCase
     }
 
     #[Test]
+    public function acceptsUuidWithUppercaseCharacters(): void
+    {
+        $uuid = new Uuid('550E8400-E29B-41D4-A716-446655440000');
+        $this->assertSame('550E8400-E29B-41D4-A716-446655440000', $uuid->value());
+    }
+
+    #[Test]
     public function throwsExceptionForInvalidUuid(): void
     {
         $this->expectException(InvalidUuidException::class);

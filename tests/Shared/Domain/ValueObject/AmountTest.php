@@ -22,8 +22,10 @@ class AmountTest extends TestCase
     public function isPositiveNearZero(): void
     {
         $amount = new Amount('0.00000001');
+
         $this->assertTrue($amount->isPositive());
     }
+
 
     #[Test]
     public function canCreateWithNumericString(): void
@@ -54,6 +56,13 @@ class AmountTest extends TestCase
     {
         $amount = new Amount('10.5');
         $this->assertTrue($amount->isPositive());
+    }
+
+    #[Test]
+    public function throwsOnScientificNotation(): void
+    {
+        $this->expectException(InvalidAmountException::class);
+        new Amount('1e-8');
     }
 
     #[Test]

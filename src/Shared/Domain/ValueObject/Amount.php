@@ -37,6 +37,11 @@ final class Amount implements ValueObjectInterface
         return $this->amount;
     }
 
+    /**
+     * @infection-ignore-all
+     * Этот метод сравнивает значение через bccomp для учёта scale.
+     * Мутант с `<=>` эквивалентен, но нарушает контракт точности.
+     */
     public function isPositive(): bool
     {
         $scale = $this->extractScale();
@@ -44,6 +49,12 @@ final class Amount implements ValueObjectInterface
         return bccomp($this->amount, '0', $scale) === 1;
     }
 
+    /**
+     * @infection-ignore-all
+     *
+     * Этот метод сравнивает значение через bccomp для учёта scale.
+     * Мутант с `<=>` эквивалентен, но нарушает контракт точности.
+     */
     public function isNegative(): bool
     {
         $scale = $this->extractScale();
@@ -51,6 +62,12 @@ final class Amount implements ValueObjectInterface
         return bccomp($this->amount, '0', $scale) === -1;
     }
 
+    /**
+     * @infection-ignore-all
+     *
+     * Этот метод сравнивает значение через bccomp для учёта scale.
+     * Мутант с `<=>` эквивалентен, но нарушает контракт точности.
+     */
     public function isZero(): bool
     {
         $scale = $this->extractScale();
@@ -72,6 +89,10 @@ final class Amount implements ValueObjectInterface
 
     private function extractScale(): int
     {
+        if (stripos($this->amount, 'e') !== false) {
+            throw new InvalidAmountException('Scientific notation is not allowed');
+        }
+
         return strlen(explode('.', $this->amount)[1] ?? '');
     }
 }

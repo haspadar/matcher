@@ -28,6 +28,47 @@ class MoneyTest extends TestCase
     }
 
     #[Test]
+    public function throwsExceptionWhenSubtractingDifferentCurrencies(): void
+    {
+        $money1 = new Money(new Amount('100.00'), new CurrencyCode('USD'), new CurrencyPrecision(2));
+        $money2 = new Money(new Amount('50.00'), new CurrencyCode('EUR'), new CurrencyPrecision(2));
+
+        $this->expectException(CurrencyMismatchException::class);
+
+        $money1->sub($money2);
+    }
+
+    #[Test]
+    public function failsToCompareGreaterThanWithFloatPrecisionLoss(): void
+    {
+        $money1 = new Money(new Amount('1.0000000000000001'), $this->usd, new CurrencyPrecision(16));
+        $money2 = new Money(new Amount('1.0000000000000000'), $this->usd, new CurrencyPrecision(16));
+
+        $this->assertTrue($money1->isGreaterThan($money2)); // bccomp === 1, <=> даст 0
+    }
+
+    #[Test]
+    public function comparesLessThanWithPrecision(): void
+    {
+        $money1 = new Money(new Amount('1.0000000000000000'), $this->usd, new CurrencyPrecision(16));
+        $money2 = new Money(new Amount('1.0000000000000001'), $this->usd, new CurrencyPrecision(16));
+
+        $this->assertTrue($money1->isLessThan($money2)); // bccomp === -1, <=> даст 0
+    }
+
+    #[Test]
+    public function throwsExceptionWhenLessThanDifferentCurrencies(): void
+    {
+        $eur = new CurrencyCode('EUR');
+        $moneyUsd = new Money(new Amount('10.00'), $this->usd, $this->precision);
+        $moneyEur = new Money(new Amount('5.00'), $eur, $this->precision);
+
+        $this->expectException(CurrencyMismatchException::class);
+
+        $moneyUsd->isLessThan($moneyEur);
+    }
+
+    #[Test]
     public function canAddMoneyWithSameCurrency(): void
     {
         $money1 = new Money(new Amount('10.00'), $this->usd, $this->precision);
