@@ -10,7 +10,7 @@
 [![Coverage](https://codecov.io/gh/haspadar/matcher/branch/main/graph/badge.svg)](https://codecov.io/gh/haspadar/matcher)
 [![PHPStan Level](https://img.shields.io/badge/PHPStan-Level%209-brightgreen)](https://phpstan.org/)
 [![Psalm](https://img.shields.io/badge/psalm-level%208-brightgreen)](https://psalm.dev)
-[![Psalm Type Coverage](https://shepherd.dev/github/haspadar/matcher/coverage.svg)
+[![Psalm Type Coverage](https://shepherd.dev/github/haspadar/matcher/coverage.svg)](https://shepherd.dev/github/haspadar/matcher)
 [![Mutation MSI](https://img.shields.io/badge/Mutation%20MSI-100%25-brightgreen)](https://infection.github.io/)
 
 ---
