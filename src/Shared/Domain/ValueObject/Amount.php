@@ -89,10 +89,6 @@ final class Amount implements ValueObjectInterface
 
     private function extractScale(): int
     {
-        if (stripos($this->amount, 'e') !== false) {
-            throw new InvalidAmountException('Scientific notation is not allowed');
-        }
-
         return strlen(explode('.', $this->amount)[1] ?? '');
     }
 }

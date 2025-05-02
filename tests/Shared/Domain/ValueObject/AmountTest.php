@@ -27,6 +27,13 @@ class AmountTest extends TestCase
     }
 
     #[Test]
+    public function throwsExceptionOnScientificNotation(): void
+    {
+        $this->expectException(InvalidAmountException::class);
+        new Amount('1e-8');
+    }
+
+    #[Test]
     public function canCreateWithNumericString(): void
     {
         $amount = new Amount('123.45');
