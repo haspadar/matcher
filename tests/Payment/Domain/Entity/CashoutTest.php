@@ -7,9 +7,9 @@ namespace Matcher\Tests\Payment\Domain\Entity;
 use Matcher\Payment\Domain\Entity\Cashout;
 use Matcher\Payment\Domain\Exception\InvalidUserIdException;
 use Matcher\Payment\Domain\ValueObject\CardNumber;
+use Matcher\Payment\Domain\ValueObject\CashoutStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Payment\Domain\ValueObject\Type;
 use Matcher\Reference\Domain\Exception\InvalidAmountStepException;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
@@ -33,7 +33,7 @@ final class CashoutTest extends TestCase
             new PositiveIntegerAmount(150),
             new PaymentCurrency('USD', 100),
             new Url('http://callback.url'),
-            Status::NEW,
+            CashoutStatus::NEW,
             Type::NORMAL,
         );
     }
@@ -51,7 +51,7 @@ final class CashoutTest extends TestCase
             new PositiveIntegerAmount(150),
             new PaymentCurrency('USD', 100),
             new Url('http://callback.url'),
-            Status::NEW,
+            CashoutStatus::NEW,
             Type::NORMAL,
         );
     }
@@ -66,7 +66,7 @@ final class CashoutTest extends TestCase
         $amount = new PositiveIntegerAmount(300);
         $currency = new PaymentCurrency('USD', 100);
         $callbackUrl = new Url('http://callback.url');
-        $status = Status::NEW;
+        $status = CashoutStatus::NEW;
         $type = Type::TEST;
 
         $cashout = new Cashout(

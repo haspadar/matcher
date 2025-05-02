@@ -8,9 +8,9 @@ use Matcher\Payment\Domain\Entity\Cashout;
 use Matcher\Payment\Domain\Event\CashoutCreatedEvent;
 use Matcher\Payment\Domain\Repository\CashoutRepositoryInterface;
 use Matcher\Payment\Domain\ValueObject\CardNumber;
+use Matcher\Payment\Domain\ValueObject\CashoutStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Status;
 use Matcher\Payment\Domain\ValueObject\Type;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
@@ -42,7 +42,7 @@ final class CashoutService
             amount: $amount,
             currency: $currency,
             callbackUrl: $callbackUrl,
-            status: Status::NEW,
+            status: CashoutStatus::NEW,
             type: $type,
         );
 

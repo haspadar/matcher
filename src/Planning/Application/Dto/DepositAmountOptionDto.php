@@ -7,7 +7,7 @@ namespace Matcher\Planning\Application\Dto;
 final class DepositAmountOptionDto
 {
     public function __construct(
-        public readonly string $amount,
+        public readonly int $amount,
         public readonly int $count,
     ) {
     }

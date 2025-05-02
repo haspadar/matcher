@@ -9,9 +9,9 @@ use Matcher\Shared\Domain\Exception\ErrorCodeTrait;
 /**
  * @codeCoverageIgnore
  */
-final class InvalidCardNumberException extends DomainException
+final class InvalidDepositAmount extends DomainException
 {
     use ErrorCodeTrait;
 
-    protected const string ERROR_CODE = 'invalid_card_number';
+    protected const string ERROR_CODE = 'invalid_deposit_amount';
 }

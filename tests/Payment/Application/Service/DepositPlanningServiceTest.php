@@ -24,16 +24,16 @@ final class DepositPlanningServiceTest extends TestCase
             ->method('getAvailableDepositAmounts')
             ->with('project-1', 'USD')
             ->willReturn([
-                new DepositAmountOptionDto('100', 2),
-                new DepositAmountOptionDto('200', 1),
+                new DepositAmountOptionDto(100, 2),
+                new DepositAmountOptionDto(200, 1),
             ]);
 
         $result = $this->depositPlanningService->getAvailableDepositAmounts('project-1', 'USD');
 
         $this->assertCount(2, $result);
-        $this->assertSame('100', $result[0]->amount);
+        $this->assertSame(100, $result[0]->amount);
         $this->assertSame(2, $result[0]->count);
-        $this->assertSame('200', $result[1]->amount);
+        $this->assertSame(200, $result[1]->amount);
         $this->assertSame(1, $result[1]->count);
     }
 

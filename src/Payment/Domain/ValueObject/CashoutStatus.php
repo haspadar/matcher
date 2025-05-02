@@ -7,7 +7,7 @@ namespace Matcher\Payment\Domain\ValueObject;
 /**
  * @codeCoverageIgnore
  */
-enum Status: string
+enum CashoutStatus: string
 {
     public function id(): int
     {
@@ -16,5 +16,5 @@ enum Status: string
         };
     }
 
-    case NEW = 'new';
+    case NEW = 'new_cashout';
 }

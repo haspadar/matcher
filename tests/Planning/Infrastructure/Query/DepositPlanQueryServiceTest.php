@@ -19,8 +19,8 @@ final class DepositPlanQueryServiceTest extends TestCase
     #[Test]
     public function returnsAmountsFromRepository(): void
     {
-        $dto1 = new DepositAmountOptionDto('100', 2);
-        $dto2 = new DepositAmountOptionDto('200', 1);
+        $dto1 = new DepositAmountOptionDto(100, 2);
+        $dto2 = new DepositAmountOptionDto(200, 1);
 
         $this->repository
             ->expects(self::once())
