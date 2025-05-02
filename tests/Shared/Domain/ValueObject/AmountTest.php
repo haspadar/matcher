@@ -26,7 +26,6 @@ class AmountTest extends TestCase
         $this->assertTrue($amount->isPositive());
     }
 
-
     #[Test]
     public function canCreateWithNumericString(): void
     {
