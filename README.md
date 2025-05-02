@@ -1,4 +1,4 @@
-# Matcher
+````# Matcher
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.4-blue)](https://www.php.net/releases/8.4/)
 [![Pint Style](https://img.shields.io/badge/Code%20Style-PSR--12-blue)](https://github.com/laravel/pint)
@@ -15,50 +15,55 @@
 
 ---
 
-## Build Status
+## 📦 О проекте
 
-- Continuous Integration via GitHub Actions.
-- Automated Tests with PHPUnit.
-- Code Coverage tracking via Codecov.
-
-## Code Quality
-
-- Static Analysis with PHPStan (Level 9)
-- Static Analysis with Psalm (Level 8)
-- Code Formatting via Laravel Pint
-- Architecture Rules enforced by Deptrac
-- Mutational Testing via [Infection](https://infection.github.io/)
-
-## About
-
-P2P matching engine for deposits and cashouts.  
-Designed for strict code quality, type safety, and clean architecture (DDD).
+`Matcher` — демо-движок для подбора P2P-депозитов и выплат.  
+Проект построен на принципах чистой архитектуры (DDD), с упором на типобезопасность, читаемость и контроль качества.
 
 ---
 
-## Setup Git Hooks
+## ⚙️ Статус сборки
 
-After cloning the repository, run:
+- CI на базе GitHub Actions
+- Автотесты с PHPUnit
+- Покрытие кода отслеживается через Codecov
+
+---
+
+## 🧪 Качество кода
+
+- Статический анализ через PHPStan (уровень 9)
+- Анализ типов через Psalm (уровень 8)
+- Проверка и автоформатирование кода через Laravel Pint
+- Архитектурные границы проверяются с помощью Deptrac
+- Мутационное тестирование через [Infection](https://infection.github.io/)
+
+---
+
+## 🚀 Установка Git хуков
+
+После клонирования репозитория:
 
 ```bash
 git config core.hooksPath .git-hooks
 ```
 
-## Available Commands
+## 🛠 Доступные команды
 
-| Command                  | Description                                          |
-|--------------------------|------------------------------------------------------|
-| `composer install`       | Install PHP dependencies                             |
-| `composer analyse`       | Run PHPStan static analysis                          |
-| `composer psalm`         | Run Psalm static analysis                            |
-| `composer pint`          | Auto-fix code style issues (Laravel Pint)            |
-| `composer pint-test`     | Check code style without fixing (Laravel Pint)       |
-| `composer test`          | Run PHPUnit tests                                    |
-| `composer test-coverage` | Run PHPUnit tests with code coverage report          |
-| `composer deptrac`       | Check architectural layer violations (Deptrac)       |
-| `composer mutation`      | Run mutation testing with Infection                  |
-| `composer metrics`       | Generate static code metrics report (PHP Metrics v3) |
+| Command                  | Description                                       |
+|--------------------------|---------------------------------------------------|
+| `composer install`       | Установка зависимостей                            |
+| `composer analyse`       | Запуск PHPStan                                    |
+| `composer psalm`         | Запуск Psalm                                      |
+| `composer pint`          | Автоисправление стиля кода (Laravel Pint)         |
+| `composer pint-test`     | Проверка кода без изменений  (Laravel Pint)       |
+| `composer test`          | Запуск юнит-тестов                                |
+| `composer test-coverage` | Запуск юнит-тестов с отчётом покрытия             |
+| `composer deptrac`       | Проверка архитектурных ограничений (Deptrac)      |
+| `composer mutation`      | Мутационное тестирование через Infection          |
+| `composer metrics`       | Генерация отчёта по метрикам кода (PHP Metrics 3) |
 
 ## 📘 Документация
 
 - [💬 Единый язык (Glossary)](docs/glossary.md)
+````
