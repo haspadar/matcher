@@ -34,6 +34,7 @@
         "analyse": "phpstan analyse src tests",
         "analyze-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/phpstan analyse",
         "psalm": "./vendor/bin/psalm",
+        "psalm:shepherd": "./vendor/bin/psalm --shepherd --no-diff --stats --output-format=github",
         "pint": "pint",
         "pint-changed": "git diff --name-only origin/main...HEAD | grep '\\.php$' | xargs -r vendor/bin/pint --test",
         "pint-test": "pint --test",

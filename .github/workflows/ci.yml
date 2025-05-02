@@ -49,7 +49,7 @@ jobs:
         run: composer deptrac
 
       - name: Run Psalm with Shepherd
-        run: vendor/bin/psalm --shepherd
+        run: composer psalm:shepherd
 
       - name: Check platform requirements
         run: composer check-platform-reqs
