@@ -48,6 +48,9 @@ jobs:
       - name: Architecture Check (Deptrac)
         run: composer deptrac
 
+      - name: Run Psalm with Shepherd
+        run: vendor/bin/psalm --shepherd
+
       - name: Check platform requirements
         run: composer check-platform-reqs
 
