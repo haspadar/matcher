@@ -6,8 +6,6 @@ namespace Matcher\Matching\Application\Query;
 
 use Matcher\Matching\Domain\ValueObject\MatchingCashout;
 use Matcher\Matching\Domain\ValueObject\MatchingDeposit;
-use Matcher\Payment\Application\Dto\CashoutDto;
-use Matcher\Payment\Application\Dto\DepositDto;
 use Matcher\Payment\Domain\ValueObject\CashoutStatus;
 use Matcher\Payment\Domain\ValueObject\DepositStatus;
 

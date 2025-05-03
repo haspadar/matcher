@@ -16,5 +16,6 @@ final readonly class DepositDto
         public string $currencyCode,
         public string $projectCode,
         public PaymentType $type,
-    ) {}
+    ) {
+    }
 }

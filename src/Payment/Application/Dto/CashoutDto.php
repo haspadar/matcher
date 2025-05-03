@@ -16,5 +16,6 @@ final readonly class CashoutDto
         public string $currencyCode,
         public string $projectCode,
         public PaymentType $type,
-    ) {}
+    ) {
+    }
 }

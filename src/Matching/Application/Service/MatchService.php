@@ -7,8 +7,6 @@ namespace Matcher\Matching\Application\Service;
 use Matcher\Matching\Application\Query\PaymentQueryServiceInterface;
 use Matcher\Matching\Domain\Event\MatchedPairEvent;
 use Matcher\Matching\Domain\Service\MatchingPolicyInterface;
-use Matcher\Matching\Domain\ValueObject\MatchingCashout;
-use Matcher\Matching\Domain\ValueObject\MatchingDeposit;
 use Matcher\Matching\Domain\ValueObject\MatchingType;
 use Matcher\Payment\Domain\ValueObject\CashoutStatus;
 use Matcher\Payment\Domain\ValueObject\DepositStatus;
