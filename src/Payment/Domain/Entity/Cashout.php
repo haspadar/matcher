@@ -9,7 +9,7 @@ use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\CashoutStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Reference\Domain\Exception\InvalidAmountStepException;
 use Matcher\Shared\Domain\Entity\EntityInterface;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
@@ -27,7 +27,7 @@ final class Cashout implements EntityInterface
         private PaymentCurrency $currency,
         private Url $callbackUrl,
         private CashoutStatus $status,
-        private Type $type,
+        private PaymentType $type,
     ) {
         $this->validateUserId($userId);
         $this->validateAmount($amount, $currency);
@@ -73,7 +73,7 @@ final class Cashout implements EntityInterface
         return $this->status;
     }
 
-    public function getType(): Type
+    public function getType(): PaymentType
     {
         return $this->type;
     }

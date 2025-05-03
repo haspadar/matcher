@@ -8,6 +8,7 @@ use DomainException;
 use Matcher\Payment\Domain\Service\ProjectProviderInterface;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
 use Matcher\Reference\Application\Query\ProjectQueryServiceInterface;
+use Override;
 
 final class ProjectProviderFromReference implements ProjectProviderInterface
 {
@@ -16,7 +17,7 @@ final class ProjectProviderFromReference implements ProjectProviderInterface
     ) {
     }
 
-    #[\Override]
+    #[Override]
     public function getByCode(string $code): PaymentProject
     {
         $dto = $this->referenceProjectQuery->findByCode($code);

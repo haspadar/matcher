@@ -8,6 +8,7 @@ use DomainException;
 use Matcher\Payment\Domain\Service\CurrencyProviderInterface;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Reference\Application\Query\CurrencyQueryServiceInterface;
+use Override;
 
 final class CurrencyProviderFromReference implements CurrencyProviderInterface
 {
@@ -16,7 +17,7 @@ final class CurrencyProviderFromReference implements CurrencyProviderInterface
     ) {
     }
 
-    #[\Override]
+    #[Override]
     public function getByCode(string $code): PaymentCurrency
     {
         $dto = $this->referenceCurrencyQuery->findByCode($code);

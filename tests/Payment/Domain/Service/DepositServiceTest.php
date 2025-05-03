@@ -12,7 +12,7 @@ use Matcher\Payment\Domain\Service\DepositService;
 use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Planning\Application\Dto\DepositAmountOptionDto;
 use Matcher\Planning\Application\Query\DepositPlanQueryInterface;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
@@ -37,7 +37,7 @@ final class DepositServiceTest extends TestCase
         $amount = new PositiveIntegerAmount(1000);
         $currency = new PaymentCurrency('USD', 100);
         $callbackUrl = new Url('https://example.com/callback');
-        $type = Type::TEST;
+        $type = PaymentType::TEST;
         $project = new PaymentProject('some-project-code', true);
 
         $this->planQuery
@@ -106,7 +106,7 @@ final class DepositServiceTest extends TestCase
             $amount,
             $currency,
             new Url('https://example.com/callback'),
-            Type::NORMAL,
+            PaymentType::NORMAL,
         );
     }
 

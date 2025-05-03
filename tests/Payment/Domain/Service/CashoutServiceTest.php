@@ -11,7 +11,7 @@ use Matcher\Payment\Domain\Service\CashoutService;
 use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use PHPUnit\Framework\Attributes\Test;
@@ -33,7 +33,7 @@ final class CashoutServiceTest extends TestCase
         $amount = new PositiveIntegerAmount(1000);
         $currency = new PaymentCurrency('USD', 100);
         $callbackUrl = new Url('https://example.com/callback');
-        $type = Type::TEST;
+        $type = PaymentType::TEST;
         $project = new PaymentProject('some-project-code', true);
         $this->cashoutRepository
             ->expects(self::once())

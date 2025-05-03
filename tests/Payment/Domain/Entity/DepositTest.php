@@ -10,7 +10,7 @@ use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\DepositStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use Matcher\Shared\Domain\ValueObject\Uuid;
@@ -33,7 +33,7 @@ final class DepositTest extends TestCase
             new PaymentCurrency('USD', 100),
             new Url('https://callback.url'),
             DepositStatus::NEW,
-            Type::NORMAL,
+            PaymentType::NORMAL,
         );
     }
 
@@ -48,7 +48,7 @@ final class DepositTest extends TestCase
         $cardNumber = new CardNumber('1234567890123456');
         $callbackUrl = new Url('https://callback.url');
         $status = DepositStatus::NEW;
-        $type = Type::TEST;
+        $type = PaymentType::TEST;
 
         $deposit = new Deposit(
             $id,

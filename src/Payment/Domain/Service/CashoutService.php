@@ -11,7 +11,7 @@ use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\CashoutStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
 use Matcher\Shared\Domain\ValueObject\Uuid;
@@ -32,7 +32,7 @@ final class CashoutService
         PositiveIntegerAmount $amount,
         PaymentCurrency $currency,
         Url $callbackUrl,
-        Type $type = Type::NORMAL,
+        PaymentType $type = PaymentType::NORMAL,
     ): Cashout {
         $cashout = new Cashout(
             id: Uuid::generate(),

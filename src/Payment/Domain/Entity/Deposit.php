@@ -9,7 +9,7 @@ use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\DepositStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Shared\Domain\Entity\EntityInterface;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
@@ -26,7 +26,7 @@ final class Deposit implements EntityInterface
         private PaymentCurrency $currency,
         private Url $callbackUrl,
         private DepositStatus $status,
-        private Type $type,
+        private PaymentType $type,
     ) {
         $this->validateUserId($userId);
     }
@@ -71,7 +71,7 @@ final class Deposit implements EntityInterface
         return $this->status;
     }
 
-    public function getType(): Type
+    public function getType(): PaymentType
     {
         return $this->type;
     }

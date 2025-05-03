@@ -14,7 +14,7 @@ use Matcher\Payment\Domain\ValueObject\CardNumber;
 use Matcher\Payment\Domain\ValueObject\DepositStatus;
 use Matcher\Payment\Domain\ValueObject\PaymentCurrency;
 use Matcher\Payment\Domain\ValueObject\PaymentProject;
-use Matcher\Payment\Domain\ValueObject\Type;
+use Matcher\Payment\Domain\ValueObject\PaymentType;
 use Matcher\Planning\Application\Query\DepositPlanQueryInterface;
 use Matcher\Shared\Domain\ValueObject\PositiveIntegerAmount;
 use Matcher\Shared\Domain\ValueObject\Url;
@@ -38,7 +38,7 @@ final class DepositService
         PositiveIntegerAmount $amount,
         PaymentCurrency $currency,
         Url $callbackUrl,
-        Type $type = Type::NORMAL,
+        PaymentType $type = PaymentType::NORMAL,
     ): Deposit {
         $this->validateAmount($amount, $project, $currency);
 

@@ -7,7 +7,7 @@ namespace Matcher\Payment\Domain\ValueObject;
 /**
  * @codeCoverageIgnore
  */
-enum Type: string
+enum PaymentType: string
 {
     case NORMAL = 'normal';
 

@@ -20,6 +20,7 @@ final class BuildPreparedAmountsService implements BuildPreparedAmountsServiceIn
     ) {
     }
 
+    #[\Override]
     public function buildByCashoutId(Uuid $cashoutId): void
     {
         $cashout = $this->cashoutRepository->findById($cashoutId);
